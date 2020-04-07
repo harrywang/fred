@@ -6,13 +6,14 @@ FRED (Flask + REact + Docker): a boilerplate for full stack development
 To run:
 
 ```
-$ export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
 $ docker-compose up -d --build
 $ docker-compose exec backend python manage.py recreate_db
 $ docker-compose exec backend python manage.py seed_db
 $ docker-compose stop
 ```
 then go to http://localhost:3007
+
+`export REACT_APP_BACKEND_SERVICE_URL=http://localhost:5001` was needed before.
 
 ## Tests
 

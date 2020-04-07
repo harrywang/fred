@@ -1,5 +1,4 @@
 import React from "react";
-import { HashLink as Link } from 'react-router-hash-link';
 
 const Home = () => (
   <div>
@@ -15,7 +14,7 @@ const Home = () => (
                 A Boilerplate for Full-Stack Development
               </h2>
               <div className="button-wrap">
-                
+
                 <a
                   href="#whatfreduses"
 

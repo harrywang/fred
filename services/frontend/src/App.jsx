@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   getUsers = () => {
-    axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`).then(res => {
+    axios.get(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/users`).then(res => {
       this.setState({users: res.data});
     }).catch(err => {
       console.log(err);
@@ -55,7 +55,7 @@ class App extends Component {
 
   addUser = (data) => {
     axios
-      .post(`${process.env.REACT_APP_USERS_SERVICE_URL}/users`, data)
+      .post(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/users`, data)
       .then(res => {
         this.getUsers();
         this.setState({ username: "", email: "" });
@@ -70,7 +70,7 @@ class App extends Component {
   }
 
   removeUser = (user_id) => {
-  axios.delete(`${process.env.REACT_APP_USERS_SERVICE_URL}/users/${user_id}`,)
+  axios.delete(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/users/${user_id}`,)
   .then((res) => {
     this.getUsers();
     this.createMessage('success', 'User removed.');
@@ -83,7 +83,7 @@ class App extends Component {
 
 
   handleRegisterFormSubmit = (data) => {
-  const url = `${process.env.REACT_APP_USERS_SERVICE_URL}/auth/register`
+  const url = `${process.env.REACT_APP_BACKEND_SERVICE_URL}/auth/register`
   axios.post(url, data)
   .then((res) => {
     console.log(res.data);
@@ -94,7 +94,7 @@ class App extends Component {
 };
 
 handleLoginFormSubmit = (data) => {
-  const url = `${process.env.REACT_APP_USERS_SERVICE_URL}/auth/login`
+  const url = `${process.env.REACT_APP_BACKEND_SERVICE_URL}/auth/login`
   axios.post(url, data)
   .then((res) => {
     this.setState({ accessToken: res.data.access_token });
@@ -110,7 +110,7 @@ validRefresh = () => {
   const token = window.localStorage.getItem('refreshToken');
   if (token) {
     axios
-    .post(`${process.env.REACT_APP_USERS_SERVICE_URL}/auth/refresh`, {
+    .post(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/auth/refresh`, {
       refresh_token: token
     })
     .then(res => {
@@ -198,7 +198,7 @@ handleCloseModal = () => {
                     Add User
                   </button>
                 )}
-                
+
                 <Modal
                   isOpen={this.state.showModal}
                   style={modalStyles}
