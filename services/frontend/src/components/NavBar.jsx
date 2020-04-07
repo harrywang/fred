@@ -10,10 +10,7 @@ const NavBar = props => {
 
 
           <div className="navbar-end">
-
-            <Link to="/about" className="navbar-item" data-testid="nav-about">
-              About
-            </Link>
+            
 
             <a href="#" class="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
               Log in
@@ -38,9 +35,7 @@ const NavBar = props => {
               <Link to="/" className="navbar-item nav-title">
                 Home
               </Link>
-              <Link to="/about" className="navbar-item" data-testid="nav-about">
-                About
-              </Link>
+
               <Link to="/status" className="navbar-item" data-testid="nav-status">
                 User Status
               </Link>
@@ -67,7 +62,7 @@ const NavBar = props => {
 
 
     <section className="container">
-      
+
 
       <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
         <span aria-hidden="true"></span>
