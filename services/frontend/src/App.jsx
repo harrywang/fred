@@ -31,7 +31,6 @@ class App extends Component {
 
     this.state = {
       users: [],
-      title: "My App",
       accessToken: null,
       messageType: null,
       messageText: null,
@@ -250,7 +249,7 @@ handleCloseModal = () => {
                       />
                     )}
                   />
-                  
+
                   <Route exact path='/about' component={About} />
                   <Route
                     exact
