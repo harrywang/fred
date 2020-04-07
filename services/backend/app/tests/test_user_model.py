@@ -1,6 +1,6 @@
 # services/users/app/tests/test_user_model.py
 
-from app.api.users.models import User
+from app.api.models import User
 
 
 def test_passwords_are_random(test_app, test_database, add_user):

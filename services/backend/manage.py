@@ -6,7 +6,7 @@ import sys
 from flask.cli import FlaskGroup
 
 from app import create_app, db
-from app.api.users.models import User
+from app.api.models import User
 
 app = create_app()
 cli = FlaskGroup(create_app=create_app)
@@ -21,7 +21,7 @@ def recreate_db():
 
 @cli.command('seed_db')
 def seed_db():
-    db.session.add(User(username='harrywang', email="harrywang@gmail.com", password="mypassword"))
+    db.session.add(User(username='test', email="test@test.com", password="test"))
     db.session.add(User(username='lebronjames', email="ljames@nba.com", password="mypassword"))
     db.session.add(User(username='stephencurry', email="stephencurry@nba.com", password="mypassword"))
     db.session.commit()

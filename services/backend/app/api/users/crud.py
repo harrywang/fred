@@ -2,7 +2,7 @@
 
 
 from app import db
-from app.api.users.models import User
+from app.api.models import User
 
 
 def get_all_users():

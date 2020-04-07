@@ -7,7 +7,7 @@ from flask_restx import Namespace, Resource, fields
 
 from app import bcrypt
 from app.api.users.crud import add_user, get_user_by_email, get_user_by_id
-from app.api.users.models import User
+from app.api.models import User
 
 auth_namespace = Namespace("auth")
 
