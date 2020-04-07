@@ -11,6 +11,7 @@ import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import UserStatus from './components/UserStatus';
 import Message from './components/Message';
+import RandomQuotes from './components/RandomQuotes';
 
 const modalStyles = {
   content: {
@@ -177,10 +178,10 @@ handleCloseModal = () => {
                   </h1>
                   <h2 className="subtitle is-5 is-muted">A Boilerplate for Full-Stack Development</h2>
                   <div className="button-wrap">
-                    <a href="#whatfreduses" target="_blank" className="button cta is-rounded primary-btn raised">
+                    <a href="#whatfreduses" target="_blank" rel="noopener noreferrer" className="button cta is-rounded primary-btn raised">
                       What Fred uses?
                     </a>
-                    <a href="https://github.com/harrywang/fred" target="_blank" className="button cta is-rounded">
+                    <a href="https://github.com/harrywang/fred" target="_blank" rel="noopener noreferrer" className="button cta is-rounded">
                       Where is Fred?
                     </a>
                   </div>
@@ -213,7 +214,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="flask-outline" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank">Flask</a></h4>
+                    <h4><a href="https://flask.palletsprojects.com/en/1.1.x/" target="_blank" rel="noopener noreferrer">Flask</a></h4>
                   </div>
                 </div>
 
@@ -222,7 +223,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="logo-react" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://reactjs.org/" target="_blank">React</a></h4>
+                    <h4><a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React</a></h4>
                   </div>
                 </div>
 
@@ -231,7 +232,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="cube-outline" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://www.docker.com/" target="_blank">Docker</a></h4>
+                    <h4><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">Docker</a></h4>
                   </div>
                 </div>
 
@@ -240,7 +241,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="server-outline" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://www.postgresql.org/" target="_blank">Postgres</a></h4>
+                    <h4><a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer">Postgres</a></h4>
                   </div>
                 </div>
 
@@ -249,7 +250,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="layers-outline" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://www.sqlalchemy.org/" target="_blank">SQLAlchemy</a></h4>
+                    <h4><a href="https://www.sqlalchemy.org/" target="_blank" rel="noopener noreferrer">SQLAlchemy</a></h4>
                   </div>
                 </div>
 
@@ -258,7 +259,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="logo-css3" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://bulma.io/" target="_blank">Bulma</a></h4>
+                    <h4><a href="https://bulma.io/" target="_blank" rel="noopener noreferrer">Bulma</a></h4>
                   </div>
                 </div>
 
@@ -267,7 +268,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="git-compare-outline" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://circleci.com/" target="_blank">CircleCI</a></h4>
+                    <h4><a href="https://circleci.com/" target="_blank" rel="noopener noreferrer">CircleCI</a></h4>
                   </div>
                 </div>
 
@@ -276,7 +277,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="rocket-outline" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://www.heroku.com/" target="_blank">Heroku</a></h4>
+                    <h4><a href="https://www.heroku.com/" target="_blank" rel="noopener noreferrer">Heroku</a></h4>
                   </div>
                 </div>
 
@@ -287,7 +288,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="logo-nodejs" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://nodejs.org/" target="_blank">Nodejs</a></h4>
+                    <h4><a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">Nodejs</a></h4>
                   </div>
                 </div>
 
@@ -296,7 +297,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="logo-npm" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://www.npmjs.com/" target="_blank">NPM</a></h4>
+                    <h4><a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">NPM</a></h4>
                   </div>
                 </div>
 
@@ -305,7 +306,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="flashlight-outline" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://jestjs.io/" target="_blank">Jest</a></h4>
+                    <h4><a href="https://jestjs.io/" target="_blank" rel="noopener noreferrer">Jest</a></h4>
                   </div>
                 </div>
 
@@ -314,7 +315,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="reader-outline" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://jaredpalmer.com/formik/" target="_blank">Formik</a></h4>
+                    <h4><a href="https://jaredpalmer.com/formik/" target="_blank" rel="noopener noreferrer">Formik</a></h4>
                   </div>
                 </div>
 
@@ -323,7 +324,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="logo-python" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://www.python.org/" target="_blank">Python</a></h4>
+                    <h4><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python</a></h4>
                   </div>
                 </div>
 
@@ -334,7 +335,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="hammer-outline" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://docs.pytest.org/" target="_blank">PyTest</a></h4>
+                    <h4><a href="https://docs.pytest.org/" target="_blank" rel="noopener noreferrer">PyTest</a></h4>
                   </div>
                 </div>
 
@@ -343,7 +344,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="key-outline" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://jwt.io/" target="_blank">JWT</a></h4>
+                    <h4><a href="https://jwt.io/" target="_blank" rel="noopener noreferrer">JWT</a></h4>
                   </div>
                 </div>
 
@@ -352,7 +353,7 @@ handleCloseModal = () => {
                     <div className="icon-wrap is-icon-reveal">
                       <ion-icon name="logo-github" size="large"></ion-icon>
                     </div>
-                    <h4><a href="https://github.com" target="_blank">Github</a></h4>
+                    <h4><a href="https://github.com" target="_blank" rel="noopener noreferrer">Github</a></h4>
                   </div>
                 </div>
 
@@ -361,7 +362,11 @@ handleCloseModal = () => {
           </div>
         </section>
 
-
+        <RandomQuotes
+          users={this.state.users}
+          removeUser={this.removeUser}
+          isAuthenticated={this.isAuthenticated}
+        />
 
         <section className="section">
           <div className="container">
