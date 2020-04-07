@@ -10,16 +10,13 @@ const NavBar = props => {
 
 
           <div className="navbar-end">
-            
 
-            <a href="#" class="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
-              Log in
-            </a>
 
-            <Link to="/register" className="navbar-item" data-testid="nav-register">
+
+            <Link to="/register" className="navbar-item is-secondary" data-testid="nav-register">
               Register
             </Link>
-            <Link to="/login" className="navbar-item" data-testid="nav-login">
+            <Link to="/login" className="navbar-item is-secondary" data-testid="nav-login">
               Log In
             </Link>
 
@@ -32,11 +29,9 @@ const NavBar = props => {
 
 
             <div className="navbar-end">
-              <Link to="/" className="navbar-item nav-title">
-                Home
-              </Link>
+              
 
-              <Link to="/status" className="navbar-item" data-testid="nav-status">
+              <Link to="/status" className="navbar-item is-secondary" data-testid="nav-status">
                 User Status
               </Link>
               <span
