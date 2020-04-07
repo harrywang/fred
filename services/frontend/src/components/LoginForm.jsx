@@ -17,7 +17,7 @@ const LoginForm = props => {
   <div class="hero-body">
     <div class="container">
       <h1 class="title has-text-centered" >
-        Hi, I am Fred :)
+        Welcome, I am Fred :)
       </h1>
 
       <div class="columns is-mobile is-centered">
@@ -56,7 +56,7 @@ const LoginForm = props => {
                 <form onSubmit={handleSubmit}>
 
                   <div className="field">
-                    <label htmlFor="input-email">
+                    <label className="label" htmlFor="input-email">
                       Email
                     </label>
                     <input
@@ -76,7 +76,7 @@ const LoginForm = props => {
                     )}
                   </div>
                   <div className="field">
-                    <label htmlFor="input-password">
+                    <label className="label" htmlFor="input-password">
                       Password
                     </label>
                     <input
