@@ -4,54 +4,53 @@ exports[`when authenticated renders 1`] = `
 <DocumentFragment>
   <nav
     aria-label="main navigation"
-    class="navbar is-dark"
+    class="navbar is-fresh is-transparent no-shadow"
     role="navigation"
   >
     <section
       class="container"
     >
-      <div
-        class="navbar-brand"
+      <a
+        aria-expanded="false"
+        aria-label="menu"
+        class="navbar-burger"
+        data-target="navbar-menu"
+        role="button"
       >
-        <a
-          class="navbar-item nav-title"
-          href="/"
-          style="font-weight: bold;"
-        >
-          Hello, World!
-        </a>
         <span
-          class="nav-toggle navbar-burger"
-        >
-          <span />
-          <span />
-          <span />
-        </span>
-      </div>
+          aria-hidden="true"
+        />
+        <span
+          aria-hidden="true"
+        />
+        <span
+          aria-hidden="true"
+        />
+      </a>
       <div
-        class="navbar-menu"
+        class="navbar-menu is-static"
+        id="navbar-menu"
       >
         <div
           class="navbar-start"
         >
           <a
-            class="navbar-item"
-            data-testid="nav-about"
-            href="/about"
+            class="navbar-item nav-title"
+            href="/"
           >
-            About
-          </a>
-          <a
-            class="navbar-item"
-            data-testid="nav-status"
-            href="/status"
-          >
-            User Status
+            FRED
           </a>
         </div>
         <div
           class="navbar-end"
         >
+          <a
+            class="navbar-item is-secondary"
+            data-testid="nav-status"
+            href="/status"
+          >
+            User Status
+          </a>
           <span
             class="navbar-item link"
             data-testid="nav-logout"
@@ -69,56 +68,55 @@ exports[`when unauthenticated renders 1`] = `
 <DocumentFragment>
   <nav
     aria-label="main navigation"
-    class="navbar is-dark"
+    class="navbar is-fresh is-transparent no-shadow"
     role="navigation"
   >
     <section
       class="container"
     >
-      <div
-        class="navbar-brand"
+      <a
+        aria-expanded="false"
+        aria-label="menu"
+        class="navbar-burger"
+        data-target="navbar-menu"
+        role="button"
       >
-        <a
-          class="navbar-item nav-title"
-          href="/"
-          style="font-weight: bold;"
-        >
-          Hello, World!
-        </a>
         <span
-          class="nav-toggle navbar-burger"
-        >
-          <span />
-          <span />
-          <span />
-        </span>
-      </div>
+          aria-hidden="true"
+        />
+        <span
+          aria-hidden="true"
+        />
+        <span
+          aria-hidden="true"
+        />
+      </a>
       <div
-        class="navbar-menu"
+        class="navbar-menu is-static"
+        id="navbar-menu"
       >
         <div
           class="navbar-start"
         >
           <a
-            class="navbar-item"
-            data-testid="nav-about"
-            href="/about"
+            class="navbar-item nav-title"
+            href="/"
           >
-            About
+            FRED
           </a>
         </div>
         <div
           class="navbar-end"
         >
           <a
-            class="navbar-item"
+            class="navbar-item is-secondary"
             data-testid="nav-register"
             href="/register"
           >
             Register
           </a>
           <a
-            class="navbar-item"
+            class="navbar-item is-secondary"
             data-testid="nav-login"
             href="/login"
           >

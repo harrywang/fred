@@ -7,18 +7,18 @@ afterEach(cleanup);
 
 describe('when unauthenticated', () => {
   const props = {
-    title: 'Hello, World!',
+
     logoutUser: () => { return true },
     isAuthenticated: jest.fn().mockImplementation(() => false),
   }
 
   it('renders the default props', async() => {
     const { getByText, findByTestId } = renderWithRouter(<NavBar {...props} />);
-    expect(getByText(props.title)).toHaveClass('nav-title');
+
     await wait(() => {
       expect(props.isAuthenticated).toHaveBeenCalledTimes(1);
     });
-    expect((await findByTestId('nav-about')).innerHTML).toBe('About');
+
     expect((await findByTestId('nav-register')).innerHTML).toBe('Register');
     expect((await findByTestId('nav-login')).innerHTML).toBe('Log In');
   });
@@ -38,11 +38,11 @@ describe('when authenticated', () => {
 
   it('renders the default props', async() => {
     const { getByText, findByTestId } = renderWithRouter(<NavBar {...props} />);
-    expect(getByText(props.title)).toHaveClass('nav-title');
+
     await wait(() => {
       expect(props.isAuthenticated).toHaveBeenCalledTimes(1);
     });
-    expect((await findByTestId('nav-about')).innerHTML).toBe('About');
+
     expect((await findByTestId('nav-status')).innerHTML).toBe('User Status');
     expect((await findByTestId('nav-logout')).innerHTML).toBe('Log Out');
   });

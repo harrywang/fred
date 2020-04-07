@@ -135,7 +135,7 @@ describe('renders', () => {
 
   it('properly', () => {
     const { getByText } = renderWithRouter(<RegisterForm {...props} />);
-    expect(getByText('Register')).toHaveClass('title');
+    expect(getByText('Register')).toHaveClass('button is-fullwidth secondary-btn is-rounded raised');
   });
 
   it('default props', () => {
@@ -153,8 +153,8 @@ describe('renders', () => {
     expect(passwordInput).toHaveAttribute('type', 'password');
     expect(passwordInput).not.toHaveValue();
 
-    const buttonInput = getByText('Submit');
-    expect(buttonInput).toHaveValue('Submit');
+    const buttonInput = getByText('Register');
+    expect(buttonInput).toHaveValue('Register');
   });
 
   it("a snapshot properly", () => {

@@ -11,18 +11,13 @@ const RegisterForm = props => {
     return <Redirect to="/" />;
   }
   return (
-
     <section className="hero is-halfheight">
+      <div className="hero-body">
+        <div className="container">
+          <h1 className="title has-text-centered">Try it out, my friend!</h1>
 
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title has-text-centered" >
-            Try it out, my friend!
-          </h1>
-
-          <div class="columns is-mobile is-centered">
-
-            <div class="column is-one-third is-mobile is-centered">
+          <div className="columns is-mobile is-centered">
+            <div className="column is-one-third is-mobile is-centered">
               <Formik
                 initialValues={{
                   username: "",
@@ -36,15 +31,15 @@ const RegisterForm = props => {
                 }}
                 validationSchema={Yup.object().shape({
                   username: Yup.string()
-                  .required("Username is required.")
-                  .min(3, "Username must be greater than 4 characters."),
+                    .required("Username is required.")
+                    .min(3, "Username must be greater than 4 characters."),
                   email: Yup.string()
-                  .email("Enter a valid email.")
-                  .required("Email is required.")
-                  .min(6, "Email must be greater than 7 characters."),
+                    .email("Enter a valid email.")
+                    .required("Email is required.")
+                    .min(6, "Email must be greater than 7 characters."),
                   password: Yup.string()
-                  .required("Password is required.")
-                  .min(3, "Password must be greater than 4 characters.")
+                    .required("Password is required.")
+                    .min(3, "Password must be greater than 4 characters.")
                 })}
               >
                 {props => {
@@ -78,7 +73,10 @@ const RegisterForm = props => {
                           onBlur={handleBlur}
                         />
                         {errors.username && touched.username && (
-                          <div className="input-feedback" data-testid="errors-username">
+                          <div
+                            className="input-feedback"
+                            data-testid="errors-username"
+                          >
                             {errors.username}
                           </div>
                         )}
@@ -91,7 +89,9 @@ const RegisterForm = props => {
                           name="email"
                           id="input-email"
                           className={
-                            errors.email && touched.email ? "input error" : "input"
+                            errors.email && touched.email
+                              ? "input error"
+                              : "input"
                           }
                           type="email"
                           placeholder="Enter an email address"
@@ -100,7 +100,10 @@ const RegisterForm = props => {
                           onBlur={handleBlur}
                         />
                         {errors.email && touched.email && (
-                          <div className="input-feedback" data-testid="errors-email">
+                          <div
+                            className="input-feedback"
+                            data-testid="errors-email"
+                          >
                             {errors.email}
                           </div>
                         )}
@@ -124,7 +127,10 @@ const RegisterForm = props => {
                           onBlur={handleBlur}
                         />
                         {errors.password && touched.password && (
-                          <div className="input-feedback" data-testid="errors-password">
+                          <div
+                            className="input-feedback"
+                            data-testid="errors-password"
+                          >
                             {errors.password}
                           </div>
                         )}
@@ -139,14 +145,11 @@ const RegisterForm = props => {
                   );
                 }}
               </Formik>
-
             </div>
-
           </div>
         </div>
       </div>
     </section>
-
   );
 };
 

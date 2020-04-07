@@ -5,56 +5,55 @@ exports[`renders 1`] = `
   <div>
     <nav
       aria-label="main navigation"
-      class="navbar is-dark"
+      class="navbar is-fresh is-transparent no-shadow"
       role="navigation"
     >
       <section
         class="container"
       >
-        <div
-          class="navbar-brand"
+        <a
+          aria-expanded="false"
+          aria-label="menu"
+          class="navbar-burger"
+          data-target="navbar-menu"
+          role="button"
         >
-          <a
-            class="navbar-item nav-title"
-            href="/"
-            style="font-weight: bold;"
-          >
-            My App
-          </a>
           <span
-            class="nav-toggle navbar-burger"
-          >
-            <span />
-            <span />
-            <span />
-          </span>
-        </div>
+            aria-hidden="true"
+          />
+          <span
+            aria-hidden="true"
+          />
+          <span
+            aria-hidden="true"
+          />
+        </a>
         <div
-          class="navbar-menu"
+          class="navbar-menu is-static"
+          id="navbar-menu"
         >
           <div
             class="navbar-start"
           >
             <a
-              class="navbar-item"
-              data-testid="nav-about"
-              href="/about"
+              class="navbar-item nav-title"
+              href="/"
             >
-              About
+              FRED
             </a>
           </div>
           <div
             class="navbar-end"
           >
             <a
-              class="navbar-item"
+              class="navbar-item is-secondary"
               data-testid="nav-register"
               href="/register"
             >
               Register
             </a>
             <a
-              class="navbar-item"
+              class="navbar-item is-secondary"
               data-testid="nav-login"
               href="/login"
             >
@@ -64,54 +63,550 @@ exports[`renders 1`] = `
         </div>
       </section>
     </nav>
-    <section
-      class="section"
-    >
-      <div
-        class="container"
-      >
-        <div
-          class="columns"
+    <div>
+      <div>
+        <section
+          class="hero is-fullheight is-default is-bold"
         >
           <div
-            class="column is-half"
+            class="hero-body"
           >
-            <br />
-            <div>
-              <h1
-                class="title is-1"
+            <div
+              class="container"
+            >
+              <div
+                class="columns is-vcentered"
               >
-                Users
-              </h1>
-              <hr />
-              <br />
-              <br />
-              <br />
-              <div>
-                <table
-                  class="table is-hoverable is-fullwidth"
+                <div
+                  class="column is-5 is-offset-1 landing-caption"
                 >
-                  <thead>
-                    <tr>
-                      <th>
-                        ID
-                      </th>
-                      <th>
-                        Email
-                      </th>
-                      <th>
-                        Username
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody />
-                </table>
+                  <h1
+                    class="title is-1 is-bold is-spaced"
+                  >
+                    Meet FRED: Flask + REact + Docker
+                  </h1>
+                  <h2
+                    class="subtitle is-5 is-muted"
+                  >
+                    A Boilerplate for Full-Stack Development
+                  </h2>
+                  <div
+                    class="button-wrap"
+                  >
+                    <a
+                      class="button cta is-rounded primary-btn raised"
+                      href="#whatfreduses"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      What Fred uses?
+                    </a>
+                    <a
+                      class="button cta is-rounded"
+                      href="https://github.com/harrywang/fred"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      Where is Fred?
+                    </a>
+                  </div>
+                </div>
+                <div
+                  class="column is-5"
+                >
+                  <figure
+                    class="image is-4by3"
+                  >
+                    <a
+                      href="https://undraw.co/"
+                    >
+                      <img
+                        alt="fred at work"
+                        src="/img/illustrations/designer.svg"
+                      />
+                    </a>
+                  </figure>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+        <section
+          class="section section-feature-grey is-medium"
+          id="whatfreduses"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="title-wrapper has-text-centered"
+            >
+              <h2
+                class="title is-2"
+              >
+                What Fred Uses
+              </h2>
+              <h3
+                class="subtitle is-5 is-muted"
+              >
+                to make you happy
+              </h3>
+              <div
+                class="divider is-centered"
+              />
+            </div>
+            <div
+              class="content-wrapper"
+            >
+              <div
+                class="columns is-multiline icon-list"
+              >
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="flask-outline"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://flask.palletsprojects.com/en/1.1.x/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Flask
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="logo-react"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://reactjs.org/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        React
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="cube-outline"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://www.docker.com/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Docker
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="server-outline"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://www.postgresql.org/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Postgres
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="layers-outline"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://www.sqlalchemy.org/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        SQLAlchemy
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="logo-css3"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://bulma.io/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Bulma
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="git-compare-outline"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://circleci.com/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        CircleCI
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="rocket-outline"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://www.heroku.com/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Heroku
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="logo-nodejs"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://nodejs.org/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Nodejs
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="logo-npm"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://www.npmjs.com/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        NPM
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="flashlight-outline"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://jestjs.io/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Jest
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="reader-outline"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://jaredpalmer.com/formik/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Formik
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="logo-python"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://www.python.org/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Python
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="hammer-outline"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://docs.pytest.org/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        PyTest
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="key-outline"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://jwt.io/"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        JWT
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+                <div
+                  class="column is-3"
+                >
+                  <div
+                    class="feature-icon has-text-centered"
+                  >
+                    <div
+                      class="icon-wrap is-icon-reveal"
+                    >
+                      <ion-icon
+                        name="logo-github"
+                        size="large"
+                      />
+                    </div>
+                    <h4>
+                      <a
+                        href="https://github.com"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Github
+                      </a>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
+      <section
+        class="section is-medium  has-background-image"
+        data-background="https://source.unsplash.com/random/1600x900"
+        data-color="#4FC1EA"
+        data-color-opacity=".6"
+      >
+        <div
+          class="overlay"
+        />
+        <div
+          class="container"
+        >
+          <div
+            class="title-wrapper has-text-centered"
+          >
+            <h2
+              class="title is-2 light-text is-spaced"
+            >
+              Quotes of the Day
+            </h2>
+            <a
+              href="http://source.unsplash.com/"
+            >
+              <p
+                class="subtitle light-text"
+              >
+                Random Background Image from Unsplash
+              </p>
+            </a>
+          </div>
+          <div
+            class="content-wrapper"
+          >
+            <div
+              class="columns is-vcentered"
+            />
+          </div>
+        </div>
+      </section>
+      <div />
+    </div>
   </div>
 </DocumentFragment>
 `;

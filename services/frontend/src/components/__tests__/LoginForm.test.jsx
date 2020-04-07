@@ -12,7 +12,7 @@ const props = {
 
 it('renders properly', () => {
   const { getByText } = renderWithRouter(<LoginForm {...props} />);
-  expect(getByText('Log In')).toHaveClass('title');
+  expect(getByText('Welcome, I am Fred :)')).toHaveClass('title');
 });
 
 it('renders with default props', () => {
@@ -26,8 +26,8 @@ it('renders with default props', () => {
   expect(passwordInput).toHaveAttribute('type', 'password');
   expect(passwordInput).not.toHaveValue();
 
-  const buttonInput = getByText('Submit');
-  expect(buttonInput).toHaveValue('Submit');
+  const buttonInput = getByText('Log in');
+  expect(buttonInput).toHaveValue('Log in');
 });
 
 it("renders", () => {
