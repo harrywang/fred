@@ -38,7 +38,6 @@ parser.add_argument("Authorization", location="headers")
 
 
 class Register(Resource):
-    # updated
     @auth_namespace.marshal_with(user)
     @auth_namespace.expect(full_user, validate=True)
     @auth_namespace.response(201, "Success")
@@ -57,7 +56,6 @@ class Register(Resource):
 
 
 class Login(Resource):
-    # updated
     @auth_namespace.marshal_with(tokens)
     @auth_namespace.expect(login, validate=True)
     @auth_namespace.response(200, "Success")
@@ -83,7 +81,6 @@ class Login(Resource):
 
 
 class Refresh(Resource):
-    # updated
     @auth_namespace.marshal_with(tokens)
     @auth_namespace.expect(refresh, validate=True)
     @auth_namespace.response(200, "Success")
@@ -118,7 +115,6 @@ class Refresh(Resource):
 
 
 class Status(Resource):
-    # updated
     @auth_namespace.marshal_with(user)
     @auth_namespace.response(200, "Success")
     @auth_namespace.response(401, "Invalid token")

@@ -9,7 +9,7 @@ const props = {
   addUser: () => { return true },
 }
 
-it('renders with default props', () => {
+test('renders with default props', () => {
   const { getByLabelText, getByText } = render(<AddUser {...props} />);
 
   const usernameInput = getByLabelText('Username');
@@ -28,7 +28,7 @@ it('renders with default props', () => {
   expect(buttonInput).toHaveValue('Submit');
 });
 
-it("renders", () => {
+test("renders", () => {
   const { asFragment } = render(<AddUser {...props} />);
   expect(asFragment()).toMatchSnapshot();
 });

@@ -46,10 +46,3 @@ class User(db.Model):
     def decode_token(token):
         payload = jwt.decode(token, current_app.config.get("SECRET_KEY"))
         return payload["sub"]
-
-
-if os.getenv("FLASK_ENV") == "development":
-    from app import admin
-    from app.api.users.admin import UsersAdminView
-
-    admin.add_view(UsersAdminView(User, db.session))

@@ -12,7 +12,7 @@ describe('when unauthenticated', () => {
     isAuthenticated: jest.fn().mockImplementation(() => false),
   }
 
-  it('renders the default props', async() => {
+  test('renders the default props', async() => {
     const { getByText, findByTestId } = renderWithRouter(<NavBar {...props} />);
 
     await wait(() => {
@@ -23,7 +23,7 @@ describe('when unauthenticated', () => {
     expect((await findByTestId('nav-login')).innerHTML).toBe('Log In');
   });
 
-  it("renders", () => {
+  test("renders", () => {
     const { asFragment } = renderWithRouter(<NavBar {...props} />);
     expect(asFragment()).toMatchSnapshot();
   });
@@ -36,7 +36,7 @@ describe('when authenticated', () => {
     isAuthenticated: jest.fn().mockImplementation(() => true),
   }
 
-  it('renders the default props', async() => {
+  test('renders the default props', async() => {
     const { getByText, findByTestId } = renderWithRouter(<NavBar {...props} />);
 
     await wait(() => {
@@ -47,7 +47,7 @@ describe('when authenticated', () => {
     expect((await findByTestId('nav-logout')).innerHTML).toBe('Log Out');
   });
 
-  it("renders", () => {
+  test("renders", () => {
     const { asFragment } = renderWithRouter(<NavBar {...props} />);
     expect(asFragment()).toMatchSnapshot();
   });

@@ -12,13 +12,13 @@ describe('when "messageType" is "success"', () => {
     removeMessage: () => true,
   }
 
-  it('renders the default props', async() => {
+  test('renders the default props', async() => {
     const { getByText, getByTestId } = render(<Message {...props} />);
     expect(getByTestId('message').innerHTML).toContain('is-success');
     expect(getByText('Hello, World!')).toHaveClass('message-text');
   });
 
-  it("renders", () => {
+  test("renders", () => {
     const { asFragment } = render(<Message {...props} />);
     expect(asFragment()).toMatchSnapshot();
   });
@@ -31,13 +31,13 @@ describe('when "messageType" is "danger"', () => {
     removeMessage: () => true,
   }
 
-  it('renders the default props', () => {
+  test('renders the default props', () => {
     const { getByText, getByTestId } = render(<Message {...props} />);
     expect(getByTestId('message').innerHTML).toContain('is-danger');
     expect(getByText('Hello, World!')).toHaveClass('message-text');
   });
 
-  it("renders", () => {
+  test("renders", () => {
     const { asFragment } = render(<Message {...props} />);
     expect(asFragment()).toMatchSnapshot();
   });

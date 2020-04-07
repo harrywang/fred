@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { Redirect } from "react-router-dom";
 
-import "./form.css";
+
 
 const LoginForm = props => {
   if (props.isAuthenticated()) {

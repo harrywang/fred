@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup, wait } from '@testing-library/react';  // updated
+import { cleanup, wait } from '@testing-library/react';
 import axios from 'axios';
 
 import UserStatus from '../UserStatus';
@@ -14,14 +14,14 @@ axios.mockImplementation(() =>
   })
 );
 
-// new
+
 const props = {
   isAuthenticated: () => { return true },
 }
 
-it('renders properly when authenticated', async() => {
+test('renders properly when authenticated', async() => {
 
-  const { container, findByTestId } = renderWithRouter(<UserStatus {...props} />);  // updated
+  const { container, findByTestId } = renderWithRouter(<UserStatus {...props} />);
   await wait(() => {
     expect(axios).toHaveBeenCalledTimes(1);
   });
@@ -29,8 +29,8 @@ it('renders properly when authenticated', async() => {
   expect((await findByTestId('user-username')).innerHTML).toBe('test');
 });
 
-it("renders", async() => {
-  const { asFragment } = renderWithRouter(<UserStatus {...props}  />);  // updated
+test("renders", async() => {
+  const { asFragment } = renderWithRouter(<UserStatus {...props}  />);
   await wait(() => {
     expect(axios).toHaveBeenCalled();
   });

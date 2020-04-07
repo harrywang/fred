@@ -5,12 +5,12 @@ import About from '../About';
 
 afterEach(cleanup);
 
-it('renders properly', () => {
+test('renders properly', () => {
   const { getByText } = render(<About />);
   expect(getByText('Add something relevant here.')).toHaveClass('content');
 });
 
-it("renders", () => {
+test("renders", () => {
   const { asFragment } = render(<About />);
   expect(asFragment()).toMatchSnapshot();
 });

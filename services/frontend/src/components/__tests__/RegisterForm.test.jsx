@@ -11,7 +11,7 @@ describe('handles form validation correctly', () => {
     isAuthenticated: jest.fn(),
   };
 
-  it('when fields are empty', async() => {
+  test('when fields are empty', async() => {
     const {
       getByLabelText,
       container,
@@ -40,7 +40,7 @@ describe('handles form validation correctly', () => {
     });
   });
 
-  it('when email field is not valid', async() => {
+  test('when email field is not valid', async() => {
     const {
       getByLabelText,
       container,
@@ -64,7 +64,7 @@ describe('handles form validation correctly', () => {
     });
   });
 
-  it('when fields are not the proper length', async() => {
+  test('when fields are not the proper length', async() => {
     const {
       getByLabelText,
       container,
@@ -96,7 +96,7 @@ describe('handles form validation correctly', () => {
     });
   });
 
-  it('when fields are valid', async() => {
+  test('when fields are valid', async() => {
     const {
       getByLabelText,
       container,
@@ -133,12 +133,12 @@ describe('renders', () => {
     isAuthenticated: () => { return false },
   }
 
-  it('properly', () => {
+  test('properly', () => {
     const { getByText } = renderWithRouter(<RegisterForm {...props} />);
     expect(getByText('Register')).toHaveClass('button is-fullwidth secondary-btn is-rounded raised');
   });
 
-  it('default props', () => {
+  test('default props', () => {
     const { getByLabelText, getByText } = renderWithRouter(<RegisterForm {...props} />);
 
     const usernameInput = getByLabelText('Username');
@@ -157,7 +157,7 @@ describe('renders', () => {
     expect(buttonInput).toHaveValue('Register');
   });
 
-  it("a snapshot properly", () => {
+  test("a snapshot properly", () => {
     const { asFragment } = renderWithRouter(<RegisterForm {...props} />);
     expect(asFragment()).toMatchSnapshot();
   });

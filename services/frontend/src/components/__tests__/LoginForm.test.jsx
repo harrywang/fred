@@ -10,12 +10,12 @@ const props = {
   isAuthenticated: () => { return false },
 }
 
-it('renders properly', () => {
+test('renders properly', () => {
   const { getByText } = renderWithRouter(<LoginForm {...props} />);
   expect(getByText('Welcome, I am Fred :)')).toHaveClass('title');
 });
 
-it('renders with default props', () => {
+test('renders with default props', () => {
   const { getByLabelText, getByText } = renderWithRouter(<LoginForm {...props} />);
 
   const emailInput = getByLabelText('Email');
@@ -30,7 +30,7 @@ it('renders with default props', () => {
   expect(buttonInput).toHaveValue('Log in');
 });
 
-it("renders", () => {
+test("renders", () => {
   const { asFragment } = renderWithRouter(<LoginForm {...props} />);
   expect(asFragment()).toMatchSnapshot();
 });
