@@ -5,16 +5,12 @@ import PropTypes from "prop-types";
 
 const NavBar = props => {
   let menu = (
-        <div id="navbar-menu" className="navbar-menu is-static">
 
-          <div className="navbar-start">
 
-          </div>
+
 
           <div className="navbar-end">
-            <Link to="/" className="navbar-item nav-title">
-              Home
-            </Link>
+
             <Link to="/about" className="navbar-item" data-testid="nav-about">
               About
             </Link>
@@ -31,17 +27,12 @@ const NavBar = props => {
             </Link>
 
           </div>
-        </div>
+
 
   );
   if (props.isAuthenticated()) {
     menu = (
 
-          <div id="navbar-menu" className="navbar-menu is-static">
-
-            <div className="navbar-start">
-
-            </div>
 
             <div className="navbar-end">
               <Link to="/" className="navbar-item nav-title">
@@ -62,7 +53,7 @@ const NavBar = props => {
               </span>
 
             </div>
-          </div>
+
 
     );
   }
@@ -76,8 +67,7 @@ const NavBar = props => {
 
 
     <section className="container">
-
-
+      
 
       <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
         <span aria-hidden="true"></span>
@@ -85,10 +75,15 @@ const NavBar = props => {
         <span aria-hidden="true"></span>
       </a>
 
+      <div id="navbar-menu" className="navbar-menu is-static">
+        <div className="navbar-start">
+          <Link to="/" className="navbar-item nav-title">
+            FRED
+          </Link>
+        </div>
 
-
-
-      {menu}
+        {menu}
+      </div>
     </section>
 
 
