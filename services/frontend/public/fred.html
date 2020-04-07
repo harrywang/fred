@@ -8,11 +8,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title> Fred :: A Boilerplate for Full-Stack Development</title>
-  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
 
   <!--Core CSS -->
-  <link rel="stylesheet" href="assets/css/bulma.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/core.css">
+  <link rel="stylesheet" href="css/bulma.css">
+  <link rel="stylesheet" type="text/css" href="css/core.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
 
@@ -22,60 +22,62 @@
   <div id="preloader">
     <div id="status"></div>
   </div>
+
+  <nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbar-menu" class="navbar-menu is-static">
+
+        <div class="navbar-start">
+
+        </div>
+
+        <div class="navbar-end">
+
+          <a href="#" class="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
+            Log in
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
+        <div class="navbar-end">
+
+          <a href="#" class="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
+            Log in
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
   <section class="hero is-fullheight is-default is-bold">
-
-    <nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
-      <div class="container">
-        <div class="navbar-brand">
-
-
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div id="navbar-menu" class="navbar-menu is-static">
-
-          <div class="navbar-start">
-
-          </div>
-
-          <div class="navbar-end">
-
-            <a href="#" class="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
-              Log in
-            </a>
-
-          </div>
-        </div>
-      </div>
-    </nav>
-
-
-    <nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
-      <div class="container">
-        <div class="navbar-brand">
-
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-
-        <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
-          <div class="navbar-end">
-
-            <a href="#" class="navbar-item is-secondary modal-trigger" data-modal="auth-modal">
-              Log in
-            </a>
-
-          </div>
-        </div>
-      </div>
-    </nav>
     <div class="hero-body">
       <div class="container">
         <div class="columns is-vcentered">
@@ -95,7 +97,7 @@
           </div>
           <div class="column is-5">
             <figure class="image is-4by3">
-              <a href="https://undraw.co/"><img src="assets/img/illustrations/designer.svg" alt="fred at work"></a>
+              <a href="https://undraw.co/"><img src="img/illustrations/designer.svg" alt="fred at work"></a>
             </figure>
           </div>
 
@@ -104,6 +106,7 @@
     </div>
 
   </section>
+  
   <section id="whatfreduses" class="section section-feature-grey is-medium">
     <div class="container">
       <div class="title-wrapper has-text-centered">
@@ -308,7 +311,7 @@
         <div class="level">
           <div class="level-item">
             <a href="https://bulma.io" target="_blank">
-              <img src="assets/img/logos/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+              <img src="img/logos/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
             </a>
 
           </div>
@@ -324,12 +327,12 @@
   <!-- Back To Top Button -->
   <div id="backtotop"><a href="#"></a></div>
 
-  <script src="assets/js/app.js"></script>
+  <script src="js/app.js"></script>
   <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
   <!-- Fresh JS -->
-  <script src="assets/js/functions.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
