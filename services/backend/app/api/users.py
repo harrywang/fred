@@ -1,10 +1,10 @@
-# app/api/users/views.py
-
+# app/api/users.py
+# APIs for users
 
 from flask import request
 from flask_restx import Resource, fields, Namespace
 
-from app.api.users.crud import (
+from app.api.utils import (
     get_all_users,
     get_user_by_email,
     add_user,

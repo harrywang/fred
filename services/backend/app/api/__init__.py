@@ -5,7 +5,7 @@ from flask_restx import Api
 
 from app.api.auth import auth_namespace
 from app.api.ping import ping_namespace
-from app.api.users.views import users_namespace
+from app.api.users import users_namespace
 
 api = Api(version="1.0", title="Backend API", doc="/doc/")
 

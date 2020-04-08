@@ -1,5 +1,6 @@
-# app/api/services.py
+# app/api/utils.py
 
+# utility helper functions
 
 from app import db
 from app.api.models import User
