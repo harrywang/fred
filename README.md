@@ -13,6 +13,8 @@ $ docker-compose stop
 ```
 then go to http://localhost:3007
 
+check out http://127.0.0.1:5001/docs/ for API docs
+
 If something does not work, you can try to use:
 
 ```
