@@ -33,6 +33,7 @@ class App extends Component {
 
     this.state = {
       users: [],
+      random_quotes: [],
       accessToken: null,
       messageType: null,
       messageText: null,
@@ -42,12 +43,20 @@ class App extends Component {
 
   componentDidMount() {
     this.getUsers();
-    //this.createMessage();
+    this.getRandomQuotes();
   }
 
   getUsers = () => {
     axios.get(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/users`).then(res => {
       this.setState({users: res.data});
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
+  getRandomQuotes = () => {
+    axios.get(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/quotes/random`).then(res => {
+      this.setState({random_quotes: res.data});
     }).catch(err => {
       console.log(err);
     });

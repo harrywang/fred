@@ -11,7 +11,7 @@ const Home = () => (
                 Meet FRED: Flask + REact + Docker
               </h1>
               <h2 className="subtitle is-5 is-muted">
-                A Boilerplate for Full-Stack Development
+                A Boilerplate for Full Stack Development
               </h2>
               <div className="button-wrap">
 
