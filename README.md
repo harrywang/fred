@@ -7,13 +7,18 @@ To run:
 
 ```
 $ docker-compose up -d --build
-$ docker-compose exec backend python manage.py recreate_db
-$ docker-compose exec backend python manage.py seed_db
+$ docker-compose exec backend python manage.py reset_db
+$ docker-compose exec backend python manage.py load_data
 $ docker-compose stop
 ```
 then go to http://localhost:3007
 
-`export REACT_APP_BACKEND_SERVICE_URL=http://localhost:5001` was needed before.
+If something does not work, you can try to use:
+
+```
+$ docker-compose down -v
+$ docker-compose up -d --build
+```
 
 ## Tests
 
@@ -35,6 +40,17 @@ $ docker-compose exec frontend npm run prettier:check
 $ docker-compose exec frontend npm run prettier:write
 $ docker-compose exec frontend npm run lint
 ```
+
+access the database via psql
+
+```
+$ docker-compose exec db psql -U postgres
+# \c app_dev
+# select * from user;
+# select * from author;
+# \q
+```
+
 
 Other commands:
 

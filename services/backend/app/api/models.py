@@ -11,7 +11,7 @@ from app import db, bcrypt
 
 class User(db.Model):
 
-    __tablename__ = "users"
+    __tablename__ = "user"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(128), nullable=False)
@@ -46,3 +46,23 @@ class User(db.Model):
     def decode_token(token):
         payload = jwt.decode(token, current_app.config.get("SECRET_KEY"))
         return payload["sub"]
+
+
+
+class Quote(db.Model):
+    __tablename__ = "quote"
+
+    id = db.Column(db.Integer, primary_key=True)
+    quote_content = db.Column('quote_content', db.Text())
+    author_id = db.Column(db.Integer, db.ForeignKey('author.id'))  # Many quotes to one author
+
+
+class Author(db.Model):
+    __tablename__ = "author"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column('name', db.String(50), unique=True)
+    birthday = db.Column('birthday', db.DateTime)
+    bornlocation = db.Column('bornlocation', db.String(150))
+    bio = db.Column('bio', db.Text())
+    quotes = db.relationship('Quote', backref='author')  # One author to many Quotes
