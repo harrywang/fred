@@ -41,35 +41,65 @@
     <!--Core CSS -->
     <link rel="stylesheet" href="%PUBLIC_URL%/css/bulma.css">
     <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/css/core.css">
+    <script src="https://kit.fontawesome.com/157c7cf5f5.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
+    <!-- Made with Love Styling -->
+      <style>
+          span {
+            color: #FFFFFF;
+            font-size: 12px;
+            display: block;
+            bottom: 10px;
 
+            text-align: center;
+          }
+          span a {
+            color: #FFFFFF;
+            text-decoration: none;
+          }
+          span a:hover {
+            color: #FFFFFF;
+            border-bottom: 1px solid #FFFFFF;
+            padding-bottom: .25em;
+            text-decoration: none;
+          }
+          span .fa {
+            color: #E90606;
+            margin: 0 3px;
+            font-size: 10px;
+            animation: pound 0.35s infinite alternate;
+            -webkit-animation: pound 0.35s infinite alternate;
+          }
+
+          @-webkit-keyframes pound {
+            to {
+              transform: scale(1.1);
+            }
+          }
+          @keyframes pound {
+            to {
+              transform: scale(1.1);
+            }
+          }
+      </style>
   </head>
   <body>
     <div id="preloader">
       <div id="status"></div>
     </div>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
     <footer class="footer footer-dark">
       <div class="container">
         <div class="footer-column">
           <div class="level">
             <div class="level-item">
-              <a href="https://github.com/cssninjaStudio/fresh" target="_blank">
-                <img src="%PUBLIC_URL%/img/logos/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
-              </a>
-
+              <span class="light-text">
+                      Made with <i class="fa fa-heart pulse"></i> by <a href="http://harrywang.me" target="_blank">Harry Wang</a>
+              </span>
             </div>
 
 

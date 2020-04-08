@@ -14,7 +14,7 @@ const RandomQuotes = props => {
         <div className="title-wrapper has-text-centered">
           <h2 className="title is-2 light-text is-spaced">Quotes of the Day</h2>
           <a href="http://source.unsplash.com/">
-            <p className="subtitle light-text">
+            <p className="light-text">
               Random Background Image from Unsplash
             </p>
           </a>
