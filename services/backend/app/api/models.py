@@ -56,6 +56,13 @@ class Quote(db.Model):
     quote_content = db.Column('quote_content', db.Text())
     author_id = db.Column(db.Integer, db.ForeignKey('author.id'))  # Many quotes to one author
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'content': self.quote_content,
+            'author_name': self.author.name,
+        }
+        return data
 
 class Author(db.Model):
     __tablename__ = "author"

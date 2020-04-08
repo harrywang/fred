@@ -27,6 +27,9 @@ backend tests:
 ```
 $ docker-compose exec backend python -m pytest "app/tests" -p no:warnings
 $ docker-compose exec backend pytest "app/tests" -p no:warnings --cov="app"
+$ docker-compose exec backend pytest "app/tests" -p no:warnings --cov="app" --cov-branch
+$ docker-compose exec backend python -m pytest "app/tests" -p no:warnings --cov="app" --cov-branch --cov-report html
+$ docker-compose exec backend python -m pytest "app/tests" -p no:warnings --cov="app" --cov-report html
 $ docker-compose exec backend flake8 app
 $ docker-compose exec backend black app
 $ docker-compose exec backend /bin/sh -c "isort app/**/*.py"

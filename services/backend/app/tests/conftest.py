@@ -4,7 +4,7 @@
 import pytest
 
 from app import create_app, db
-from app.api.models import User
+from app.api.models import User, Author, Quote
 
 
 @pytest.fixture(scope="module")
@@ -32,3 +32,27 @@ def add_user():
         return user
 
     return _add_user
+
+
+@pytest.fixture(scope="module")
+def add_quote():
+    def _add_quote(author_name, content):
+
+        author = Author()
+        quote = Quote()
+
+        author.name = author_name
+        quote.quote_content = content
+
+        # check whether the author exists
+        exist_author = db.session.query(Author).filter_by(name = author.name).first()
+        if exist_author is not None:  # the current author exists
+            quote.author = exist_author
+        else:
+            quote.author = author
+
+        db.session.add(quote)
+        db.session.commit()
+        return quote
+
+    return _add_quote
