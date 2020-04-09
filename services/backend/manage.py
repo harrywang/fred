@@ -35,7 +35,7 @@ def load_data():
 
     # load author and quote tables
     # author table: id,name,birthday,bornlocation,bio
-    # quote table: id,quote_content,author_id
+    # quote table: id,content,author_id
     with open('app/sample-data/author.csv', 'r', encoding="utf-8") as author_csv:
         author_csv_reader = csv.reader(author_csv, delimiter=',')
         for author in author_csv_reader:
@@ -44,7 +44,7 @@ def load_data():
     with open('app/sample-data/quote.csv', 'r', encoding="utf-8") as quote_csv:
         quote_csv_reader = csv.reader(quote_csv, delimiter=',')
         for quote in quote_csv_reader:
-            db.session.add(Quote(id=int(quote[0]), quote_content=quote[1], author_id=int(quote[2])))
+            db.session.add(Quote(id=int(quote[0]), content=quote[1], author_id=int(quote[2])))
 
     db.session.commit()
     print("author and quote tables loaded")

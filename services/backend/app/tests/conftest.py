@@ -42,7 +42,7 @@ def add_quote():
         quote = Quote()
 
         author.name = author_name
-        quote.quote_content = content
+        quote.content = content
 
         # check whether the author exists
         exist_author = db.session.query(Author).filter_by(name = author.name).first()

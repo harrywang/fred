@@ -3,7 +3,7 @@
 # utility helper functions
 
 from app import db
-from app.api.models import User
+from app.api.models import User, Author, Quote
 
 
 def get_all_users():
@@ -11,7 +11,6 @@ def get_all_users():
 
 
 def get_user_by_id(user_id):
-    print(user_id)
     t = User.query.filter_by(id=user_id).first()
     return t
 
@@ -38,3 +37,23 @@ def delete_user(user):
     db.session.delete(user)
     db.session.commit()
     return user
+
+
+def add_quote(author_name, content):
+
+    author = Author()
+    quote = Quote()
+
+    author.name = author_name
+    quote.content = content
+
+    # check whether the author exists
+    exist_author = db.session.query(Author).filter_by(name = author.name).first()
+    if exist_author is not None:  # the current author exists
+        quote.author = exist_author
+    else:
+        quote.author = author
+
+    db.session.add(quote)
+    db.session.commit()
+    return quote

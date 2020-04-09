@@ -8,10 +8,13 @@ from app.api.models import Author, Quote
 
 import random
 
+from app.api.utils import (
+    add_quote,
+)
+
 quotes_namespace = Namespace("quotes")
 
 # this model does not have to match the database
-# I defined a to_dict function in Quote class in models.py
 # doing this add description to Swagger Doc
 quote = quotes_namespace.model(
     "Quote",
@@ -31,9 +34,29 @@ class Quotes(Resource):
         quotes = Quote.query.all()
         quotes_list = []
         for q in quotes:
+            # to_dict() is a helper function in Quote class in models.py
             quotes_list.append(q.to_dict())
         return quotes_list, 200
 
+
+    @quotes_namespace.expect(quote, validate=True)
+    @quotes_namespace.response(201, "quote was added!")
+    @quotes_namespace.response(400, "Sorry, this quote already exists.")
+    def post(self):
+        """add a new quote"""
+        post_data = request.get_json()
+        content = post_data.get("content")
+        author_name = post_data.get("author_name")
+        response_object = {}
+
+        quote = Quote.query.filter_by(content=content).first()
+        if quote:
+            response_object["message"] = "Sorry, this quote already exists."
+            return response_object, 400
+
+        add_quote(author_name, content)
+        response_object["message"] = f"quote was added!"
+        return response_object, 201
 
 # we dont use marshal with - no information
 class RandomQuotes(Resource):

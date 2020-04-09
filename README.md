@@ -1,5 +1,5 @@
 # About
-FRED (Flask + REact + Docker): a boilerplate for full stack development
+FRED (Flask + REact + Docker): A Boilerplate for Full Stack Development
 
 ## Run
 
