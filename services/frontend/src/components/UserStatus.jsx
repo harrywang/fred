@@ -40,16 +40,29 @@ class UserStatus extends Component {
     }
     return (
       <div>
-        <ul>
-          <li>
-            <strong>Email:</strong>&nbsp;
-            <span data-testid="user-email">{this.state.email}</span>
-          </li>
-          <li>
-            <strong>Username:</strong>&nbsp;
-            <span data-testid="user-username">{this.state.username}</span>
-          </li>
-        </ul>
+
+        <section className="hero is-halfheight">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title has-text-centered">User Status</h1>
+
+              <div className="columns is-mobile is-centered">
+                <div className="column is-one-third is-mobile is-centered">
+                  <ul>
+                    <li>
+                      <strong>Email:</strong>&nbsp;
+                      <span data-testid="user-email">{this.state.email}</span>
+                    </li>
+                    <li>
+                      <strong>Username:</strong>&nbsp;
+                      <span data-testid="user-username">{this.state.username}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }
