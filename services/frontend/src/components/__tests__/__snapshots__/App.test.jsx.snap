@@ -88,7 +88,7 @@ exports[`renders 1`] = `
                   <h2
                     class="subtitle is-5 is-muted"
                   >
-                    A Boilerplate for Full-Stack Development
+                    A Boilerplate for Full Stack Development
                   </h2>
                   <div
                     class="button-wrap"
@@ -585,10 +585,10 @@ exports[`renders 1`] = `
               Quotes of the Day
             </h2>
             <a
-              href="http://source.unsplash.com/"
+              href="http://source.unsplash.com"
             >
               <p
-                class="subtitle light-text"
+                class="light-text"
               >
                 Random Background Image from Unsplash
               </p>

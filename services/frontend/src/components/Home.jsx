@@ -14,10 +14,8 @@ const Home = () => (
                 A Boilerplate for Full Stack Development
               </h2>
               <div className="button-wrap">
-
                 <a
                   href="#whatfreduses"
-
                   className="button cta is-rounded primary-btn raised"
                 >
                   What Fred uses?

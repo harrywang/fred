@@ -4,8 +4,6 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { Redirect } from "react-router-dom";
 
-
-
 const RegisterForm = props => {
   if (props.isAuthenticated()) {
     return <Redirect to="/" />;
@@ -31,15 +29,15 @@ const RegisterForm = props => {
                 }}
                 validationSchema={Yup.object().shape({
                   username: Yup.string()
-                  .required("Username is required.")
-                  .min(3, "Username must be greater than 4 characters."),
+                    .required("Username is required.")
+                    .min(3, "Username must be greater than 4 characters."),
                   email: Yup.string()
-                  .email("Enter a valid email.")
-                  .required("Email is required.")
-                  .min(6, "Email must be greater than 7 characters."),
+                    .email("Enter a valid email.")
+                    .required("Email is required.")
+                    .min(6, "Email must be greater than 7 characters."),
                   password: Yup.string()
-                  .required("Password is required.")
-                  .min(3, "Password must be greater than 4 characters.")
+                    .required("Password is required.")
+                    .min(3, "Password must be greater than 4 characters.")
                 })}
               >
                 {props => {

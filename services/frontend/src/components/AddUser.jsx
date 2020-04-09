@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-
 const AddUser = props => (
   <Formik
     initialValues={{

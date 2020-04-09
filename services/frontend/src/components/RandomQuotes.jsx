@@ -13,35 +13,22 @@ const RandomQuotes = props => {
       <div className="container">
         <div className="title-wrapper has-text-centered">
           <h2 className="title is-2 light-text is-spaced">Quotes of the Day</h2>
-          <a href="http://source.unsplash.com/">
-            <p className="light-text">
-              Random Background Image from Unsplash
-            </p>
+          <a href="http://source.unsplash.com">
+            <p className="light-text">Random Background Image from Unsplash</p>
           </a>
         </div>
 
         <div className="content-wrapper">
           <div className="columns is-vcentered">
-            {props.users.map(user => {
+            {props.random_quotes.map(random_quote => {
               return (
                 <div className="column is-4">
                   <figure className="testimonial">
-                    <blockquote>
-                      {user.id} {user.email} Lorem ipsum dolor sit amet, elit
-                      deleniti dissentias quo eu, hinc minim appetere
-                    </blockquote>
+                    <blockquote>{random_quote.content}</blockquote>
                     <div className="author">
-                      <h5>{user.username}</h5>
+                      <h5>{random_quote.author_name}</h5>
                     </div>
                   </figure>
-                  {props.isAuthenticated() && (
-                    <button
-                      className="button is-danger is-small"
-                      onClick={() => props.removeUser(user.id)}
-                    >
-                      Delete
-                    </button>
-                  )}
                 </div>
               );
             })}
@@ -53,9 +40,7 @@ const RandomQuotes = props => {
 };
 
 RandomQuotes.propTypes = {
-  users: PropTypes.array.isRequired,
-  removeUser: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.func.isRequired
+  random_quotes: PropTypes.array.isRequired
 };
 
 export default RandomQuotes;

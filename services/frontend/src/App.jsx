@@ -188,43 +188,44 @@ handleCloseModal = () => {
 
 
         <Switch>
-          <Route exact path='/' render={() => (
-            <div>
-              <Home />
-              <RandomQuotes
-                users={this.state.users}
-                removeUser={this.removeUser}
-                isAuthenticated={this.isAuthenticated}
-              />
-
+          <Route
+            exact
+            path='/'
+            render={() => (
               <div>
+                <Home />
+                <RandomQuotes
+                  random_quotes={this.state.random_quotes}
+                />
 
-                {this.isAuthenticated() && (
-                  <button
-                    onClick={this.handleOpenModal}
-                    className="button is-primary"
+                <div>
+
+                  {this.isAuthenticated() && (
+                    <button
+                      onClick={this.handleOpenModal}
+                      className="button is-primary"
+                    >
+                      Add User
+                    </button>
+                  )}
+
+                  <Modal
+                    isOpen={this.state.showModal}
+                    style={modalStyles}
                   >
-                    Add User
-                  </button>
-                )}
-
-                <Modal
-                  isOpen={this.state.showModal}
-                  style={modalStyles}
-                >
-                  <div className="modal is-active">
-                    <div className="modal-background" />
-                    <div className="modal-card">
-                      <header className="modal-card-head">
-                        <p className="modal-card-title">Add User</p>
-                        <button className="delete" aria-label="close" onClick={this.handleCloseModal} />
-                      </header>
-                      <section className="modal-card-body">
-                        <AddUser addUser={this.addUser} />
-                      </section>
+                    <div className="modal is-active">
+                      <div className="modal-background" />
+                      <div className="modal-card">
+                        <header className="modal-card-head">
+                          <p className="modal-card-title">Add User</p>
+                          <button className="delete" aria-label="close" onClick={this.handleCloseModal} />
+                        </header>
+                        <section className="modal-card-body">
+                          <AddUser addUser={this.addUser} />
+                        </section>
+                      </div>
                     </div>
-                  </div>
-                </Modal>
+                  </Modal>
 
               </div>
             </div>
