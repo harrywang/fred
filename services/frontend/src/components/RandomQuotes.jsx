@@ -22,7 +22,7 @@ const RandomQuotes = props => {
           <div className="columns is-vcentered">
             {props.random_quotes.map(random_quote => {
               return (
-                <div className="column is-4">
+                <div key={random_quote.id} className="column is-4">
                   <figure className="testimonial">
                     <blockquote>{random_quote.content}</blockquote>
                     <div className="author">

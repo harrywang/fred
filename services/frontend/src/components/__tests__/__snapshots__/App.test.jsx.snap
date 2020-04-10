@@ -88,7 +88,7 @@ exports[`renders 1`] = `
                   <h2
                     class="subtitle is-5 is-muted"
                   >
-                    A Boilerplate for Full Stack Development
+                    An End-to-End Boilerplate for Full Stack Development
                   </h2>
                   <div
                     class="button-wrap"
@@ -603,7 +603,6 @@ exports[`renders 1`] = `
           </div>
         </div>
       </section>
-      <div />
     </div>
   </div>
 </DocumentFragment>

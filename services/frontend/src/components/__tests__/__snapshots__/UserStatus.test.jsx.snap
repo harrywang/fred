@@ -3,30 +3,55 @@
 exports[`renders 1`] = `
 <DocumentFragment>
   <div>
-    <ul>
-      <li>
-        <strong>
-          Email:
-        </strong>
-         
-        <span
-          data-testid="user-email"
+    <section
+      class="hero is-halfheight"
+    >
+      <div
+        class="hero-body"
+      >
+        <div
+          class="container"
         >
-          test@test.com
-        </span>
-      </li>
-      <li>
-        <strong>
-          Username:
-        </strong>
-         
-        <span
-          data-testid="user-username"
-        >
-          test
-        </span>
-      </li>
-    </ul>
+          <h1
+            class="title has-text-centered"
+          >
+            User Status
+          </h1>
+          <div
+            class="columns is-mobile is-centered"
+          >
+            <div
+              class="column is-one-third is-mobile is-centered"
+            >
+              <ul>
+                <li>
+                  <strong>
+                    Email:
+                  </strong>
+                   
+                  <span
+                    data-testid="user-email"
+                  >
+                    test@test.com
+                  </span>
+                </li>
+                <li>
+                  <strong>
+                    Username:
+                  </strong>
+                   
+                  <span
+                    data-testid="user-username"
+                  >
+                    test
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </DocumentFragment>
 `;
