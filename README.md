@@ -1,4 +1,6 @@
 # About
+[![harrywang](https://circleci.com/gh/harrywang/fred.svg?style=svg)](https://app.circleci.com/pipelines/github/harrywang/fred)
+
 FRED (Flask + REact + Docker): An End-to-End Boilerplate for Full Stack Development
 
 Demo: [harrywang.me/fred](http://harrywang.me/fred)
@@ -198,3 +200,9 @@ $ heroku run python manage.py reset_db
 $ heroku run python manage.py load_data
 ```
 Done! your app is running at https://getfred.herokuapp.com and https://getfred.herokuapp.com/docs/
+
+## CircleCI
+
+- add .circleci/config.yml
+- add Docker Hub environment variables
+<img width="771" alt="Screen Shot 2020-04-11 at 10 08 35 AM" src="https://user-images.githubusercontent.com/595772/79046079-97525b80-7bdc-11ea-8c6d-b974539be00d.png">
