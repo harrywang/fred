@@ -5,7 +5,7 @@ Demo: [harrywang.me/fred](http://harrywang.me/fred)
 
 <img width="1013" alt="Screen Shot 2020-04-10 at 8 46 58 PM" src="https://user-images.githubusercontent.com/595772/79031413-7b16d600-7b6c-11ea-9799-9fce00453290.png">
 
-Tools and packages used in this repo:
+Tools and packages used in this project:
 
 - [Flask](https://flask.palletsprojects.com/): a micro web framework written in Python
 - [React](https://reactjs.org/): a JavaScript library for building user interfaces
@@ -26,7 +26,7 @@ Tools and packages used in this repo:
 - CircleCI (TODO)
 - AWS (TODO)
 
-Data: we use the data scraped from http://quotes.toscrape.com/. Check out my tutorial [A Minimalist End-to-End Scrapy Tutorial](https://towardsdatascience.com/a-minimalist-end-to-end-scrapy-tutorial-part-i-11e350bcdec0?source=friends_link&sk=c9f8e32f28a88c61987ec60f93b93e6d) if you are interested in learning web scraping.
+Data: I use the data scraped from http://quotes.toscrape.com/. Check out my tutorial [A Minimalist End-to-End Scrapy Tutorial](https://towardsdatascience.com/a-minimalist-end-to-end-scrapy-tutorial-part-i-11e350bcdec0?source=friends_link&sk=c9f8e32f28a88c61987ec60f93b93e6d) if you are interested in learning web scraping.
 
 Special Thanks: many parts of this repo are based on the [open-source code](https://github.com/testdrivenio/flask-react-aws) and related [courses](https://testdriven.io/payments/bundle/microservices-with-docker-flask-and-react/) offered by Michael Herman from testdriven.io - highly recommended! Please show your support by buying the courses - I am not affiliated with testdriven.io - just really enjoyed the courses :).
 
