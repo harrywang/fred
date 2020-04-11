@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: /fred
+    working_directory: ~/fred
     docker:
       - image: circleci/python:3.7-stretch-browsers-legacy
     steps:
