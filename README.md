@@ -1,7 +1,9 @@
 # About
-FRED (Flask + REact + Docker): A Boilerplate for Full Stack Development
+FRED (Flask + REact + Docker): An End-to-End Boilerplate for Full Stack Development
 
-Demo: fred.harrywang.me
+Project Website: harrywang.me/fred
+
+<img width="1013" alt="Screen Shot 2020-04-10 at 8 46 58 PM" src="https://user-images.githubusercontent.com/595772/79031413-7b16d600-7b6c-11ea-9799-9fce00453290.png">
 
 Tools and packages used in this repo:
 
@@ -16,15 +18,17 @@ Tools and packages used in this repo:
 - Python Linting and Formatting: flake8, black, isort
 - JS Linting and Formatting: ESLint and Prettier
 - JSON Web Tokens (JWT) via flask-bcrypt and pyjwt
-- Heroku
 - [Bulma](https://bulma.io/): a free, open source, and modern CSS framework
 - [Fresh](https://github.com/cssninjaStudio/fresh): a beautiful Bulma template by CSSNinja
 - Illustrations from [UnDraw.co](https://undraw.co/)
 - Images from [Unsplash](https://unsplash.com/)
+- [Heroku](https://www.heroku.com/): a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 - CircleCI (TODO)
 - AWS (TODO)
 
-**Special Thanks**: many parts of this repo are based on the [open-source code](https://github.com/testdrivenio/flask-react-aws) and related [courses](https://testdriven.io/payments/bundle/microservices-with-docker-flask-and-react/) offered by Michael Herman from testdriven.io - highly recommended! Please show your support by buying the courses - I am not affiliated with testdriven.io - just really enjoyed the courses :).
+Data: we use the data scraped from http://quotes.toscrape.com/. Check out my tutorial [A Minimalist End-to-End Scrapy Tutorial](https://towardsdatascience.com/a-minimalist-end-to-end-scrapy-tutorial-part-i-11e350bcdec0?source=friends_link&sk=c9f8e32f28a88c61987ec60f93b93e6d) if you are interested in learning web scraping.
+
+Special Thanks: many parts of this repo are based on the [open-source code](https://github.com/testdrivenio/flask-react-aws) and related [courses](https://testdriven.io/payments/bundle/microservices-with-docker-flask-and-react/) offered by Michael Herman from testdriven.io - highly recommended! Please show your support by buying the courses - I am not affiliated with testdriven.io - just really enjoyed the courses :).
 
 
 ## Prerequisites
@@ -44,16 +48,21 @@ You need to install the followings:
 
 ## Run
 
-Clone the repo: `git clone https://github.com/harrywang/fred.git` and switch to `fred` folder and run `docker-compose up -d --build`, then visit http://localhost:3007 to check the app and visit http://127.0.0.1:5001/docs/ for Swagger API docs.
+1. Clone the repo: `git clone https://github.com/harrywang/fred.git`
+2. Switch to `fred` folder and run `docker-compose up -d --build`
+3. Setup database and load data:
+```
+$ docker-compose exec backend python manage.py reset_db
+$ docker-compose exec backend python manage.py load_data
+```
+4. Visit http://localhost:3007 to check the app and visit http://127.0.0.1:5001/docs/ to check API docs
 
 Other useful commands:
 
 ```
-$ docker-compose up -d --build
-$ docker-compose exec backend python manage.py reset_db
-$ docker-compose exec backend python manage.py load_data
-$ docker-compose stop
-$ docker-compose down
+$ docker-compose stop # stop containers
+$ docker-compose down # stop and remove containers
+$ docker-compose down -v # stop and remove containers and volumes
 ```
 
 If something does not work, you can try to use:
@@ -110,8 +119,13 @@ SSH to containers:
 $ docker-compose exec backend /bin/sh
 $ docker-compose exec backend-db /bin/sh
 ```
+## Development Workflow
 
-Heroku Deployment:
+Some notes:
+
+- If you add new API endpoints - don't forget to add them to `services/nginx/default.conf`
+
+## Heroku Deployment:
 
 - setup nginx by adding `services/nginx/default.conf`. Note that nginx listens at `$PORT`
 - add Dockerfile.deploy file. Note that `sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && \` maps `$PORT` in `services/nginx/default.conf` by the environmental variable PORT supplied by Heroku - you will supply this port when running the container later.
@@ -166,7 +180,7 @@ registry.heroku.com/getfred/web   latest              5cf10836d5b9        9 minu
   <img width="582" alt="Screen Shot 2020-04-10 at 3 26 42 PM" src="https://user-images.githubusercontent.com/595772/79017638-d5e60880-7b3f-11ea-84b6-84e0db0870e9.png">
   - `-e`: set environment variables for the container. `-e PORT=8765` says Nginx listens on port 8765
   - `-p`: Publish a container's port or a range of ports to the host. Format is `hostPort:containerPort`, `-p 8007:8765` means the host's 8007 port will be directed to the container's 8765 port
-- Reset database and load data. `-it` means executing an interactive bash shell (i:interactive, t: terminal) on the container.
+- Reset database and load data. `-it` means executing an interactive bash shell (maybe i:interactive, t: terminal) on the container.
 ```
 $ docker exec -it getfred python manage.py reset_db
 $ docker exec -it getfred python manage.py load_data
@@ -178,11 +192,9 @@ $ docker rm getfred
 ```
 - Log in to the Heroku Container Registry: `$ heroku container:login`
 - push image `docker push registry.heroku.com/getfred/web:latest`
-
 ```
 $ heroku container:release --app getfred web
 $ heroku run python manage.py reset_db
 $ heroku run python manage.py load_data
 ```
-https://getfred.herokuapp.com
-https://getfred.herokuapp.com/docs/
+Done! your app is running at https://getfred.herokuapp.com and https://getfred.herokuapp.com/docs/
