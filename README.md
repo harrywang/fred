@@ -1,7 +1,7 @@
 # About
 FRED (Flask + REact + Docker): An End-to-End Boilerplate for Full Stack Development
 
-Project Website: [harrywang.me/fred](http://harrywang.me/fred)
+Demo: [harrywang.me/fred](http://harrywang.me/fred)
 
 <img width="1013" alt="Screen Shot 2020-04-10 at 8 46 58 PM" src="https://user-images.githubusercontent.com/595772/79031413-7b16d600-7b6c-11ea-9799-9fce00453290.png">
 
