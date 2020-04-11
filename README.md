@@ -14,7 +14,7 @@ Tools and packages used in this project:
 - [Docker](https://www.docker.com/): a set of platform as a service products that uses OS-level virtualization to deliver software in packages called containers
 - [Postgres](https://www.postgresql.org/): a free and open-source relational database management system
 - [SQLAlchemy](https://www.sqlalchemy.org/): an open-source SQL toolkit and object-relational mapper for Python
-- [Flask-RESTX](https://flask-restx.readthedocs.io/):an Flask extension for building REST APIs
+- [Flask-RESTX](https://flask-restx.readthedocs.io/): a Flask extension for building REST APIs
 - [PyTest](https://docs.pytest.org/en/latest/): a Python testing framework
 - [Jest](https://jestjs.io/): a JavaScript testing framework
 - Python Linting and Formatting: flake8, black, isort
@@ -25,7 +25,7 @@ Tools and packages used in this project:
 - Illustrations from [UnDraw.co](https://undraw.co/)
 - Images from [Unsplash](https://unsplash.com/)
 - [Heroku](https://www.heroku.com/): a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
-- CircleCI (TODO)
+- [CircleCI](https://circleci.com/): a continuous integration and delivery platform
 - AWS (TODO)
 
 Data: I use the data scraped from http://quotes.toscrape.com/. Check out my tutorial [A Minimalist End-to-End Scrapy Tutorial](https://towardsdatascience.com/a-minimalist-end-to-end-scrapy-tutorial-part-i-11e350bcdec0?source=friends_link&sk=c9f8e32f28a88c61987ec60f93b93e6d) if you are interested in learning web scraping.
@@ -170,6 +170,7 @@ $ export DATABASE_URL=postgres://some_random_username:some_random_password@ec2-1
 
 - Set security key on remote Heroku App: `heroku config:set SECRET_KEY=you_should_choose_your_key --app getfred`
 <img width="955" alt="Screen Shot 2020-04-10 at 3 54 25 PM" src="https://user-images.githubusercontent.com/595772/79019130-9caf9780-7b43-11ea-9f82-d480625f5b4c.png">
+
 - Set environment variable: `export REACT_APP_BACKEND_SERVICE_URL=http://localhost:8007` - I set '- REACT_APP_BACKEND_SERVICE_URL=http://localhost:5001' in `docker-compose.yml` file, so when we use 'docker-compose up -d' locally, port 5001 is used for AJAX calls from React. We are change this to 8007 (or any other number) to avoid potential locally conflict with the running services.
 - Build and tag the image: `docker build -f Dockerfile.deploy -t registry.heroku.com/getfred/web .`
 ```
@@ -180,6 +181,7 @@ registry.heroku.com/getfred/web   latest              5cf10836d5b9        9 minu
 - Start the newly built image: `docker run -d --name getfred -e PORT=8765 -e DATABASE_URL="$(echo $DATABASE_URL)" -e "SECRET_KEY=test" -p 8007:8765 registry.heroku.com/getfred/web:latest`
   - `--name`:  assign a container name, see with `getfred` name below or a random name is assigned each time
   <img width="582" alt="Screen Shot 2020-04-10 at 3 26 42 PM" src="https://user-images.githubusercontent.com/595772/79017638-d5e60880-7b3f-11ea-84b6-84e0db0870e9.png">
+
   - `-e`: set environment variables for the container. `-e PORT=8765` says Nginx listens on port 8765
   - `-p`: Publish a container's port or a range of ports to the host. Format is `hostPort:containerPort`, `-p 8007:8765` means the host's 8007 port will be directed to the container's 8765 port
 - Reset database and load data. `-it` means executing an interactive bash shell (maybe i:interactive, t: terminal) on the container.
@@ -204,5 +206,5 @@ Done! your app is running at https://getfred.herokuapp.com and https://getfred.h
 ## CircleCI
 
 - add .circleci/config.yml
-- add Docker Hub environment variables
+- add Docker Hub environment variables on CircleCI.com:
 <img width="771" alt="Screen Shot 2020-04-11 at 10 08 35 AM" src="https://user-images.githubusercontent.com/595772/79046079-97525b80-7bdc-11ea-8c6d-b974539be00d.png">
