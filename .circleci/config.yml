@@ -3,17 +3,20 @@ jobs:
   build:
     working_directory: /fred
     docker:
-      - image: docker:17.05.0-ce-git
+      - image: circleci/python:3.7-stretch-browsers-legacy
     steps:
       - checkout
+      - run:
+          name: Install Docker Compose
+          command: |
+            set -x
+            curl -L https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+            chmod +x /usr/local/bin/docker-compose
       - setup_remote_docker
       - run:
-          name: Install dependencies
+          name: Start container and verify it is working
           command: |
-            apk add --no-cache py-pip=9.0.0-r1
-            pip install docker-compose==1.15.0
-      - run:
-          name: Run tests
-          command: |
+            set -x
             docker-compose up -d
-            docker-compose run backend python manage.py reset_db
+            docker run --network container:backend \
+              appropriate/curl --retry 10 --retry-delay 1 --retry-connrefused http://localhost:5001/ping
