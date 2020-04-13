@@ -29,7 +29,6 @@
           - run:
               name: Run Docker Image
               command: |
-                docker build -f Dockerfile.deploy -t $IMAGE_NAME:latest .
                 docker run -d --name getfred -e PORT=8765 -e "SECRET_KEY=test" -p 8007:8765 $IMAGE_NAME:latest
           - run:
               name: Create database and load data
