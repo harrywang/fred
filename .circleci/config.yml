@@ -25,11 +25,16 @@
       test:
         executor: docker-publisher
         steps:
+          - attach_workspace:
+              at: /tmp/workspace
           - setup_remote_docker
+          - run:
+              name: Load archived Docker image
+              command: docker load -i /tmp/workspace/image.tar
           - run:
               name: Run Docker Image
               command: |
-                docker run -d --name getfred -e PORT=8765 -e "SECRET_KEY=test" -p 8007:8765 $IMAGE_NAME:latest
+                docker run -d --name getfred -e PORT=8765 -e DATABASE_URL="$(echo $DATABASE_URL)" -e "SECRET_KEY=test" -e REACT_APP_BACKEND_SERVICE_URL="$(echo $REACT_APP_BACKEND_SERVICE_URL)" -p 8007:8765 $IMAGE_NAME:latest
           - run:
               name: Create database and load data
               command: |
