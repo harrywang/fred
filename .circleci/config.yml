@@ -22,19 +22,19 @@
               root: .
               paths:
                 - ./image.tar
-      test:
+      build-test:
         executor: docker-publisher
         steps:
-          - attach_workspace:
-              at: /tmp/workspace
+          - checkout
           - setup_remote_docker
           - run:
-              name: Load archived Docker image
-              command: docker load -i /tmp/workspace/image.tar
+              name: Build Testing Docker image
+              command: |
+                docker build -f Dockerfile.test -t $IMAGE_NAME:dev .
           - run:
               name: Run Docker Image
               command: |
-                docker run -d --name getfred -e PORT=8765 -e DATABASE_URL="$(echo $DATABASE_URL)" -e "SECRET_KEY=test" -e REACT_APP_BACKEND_SERVICE_URL="$(echo $REACT_APP_BACKEND_SERVICE_URL)" -p 8007:8765 $IMAGE_NAME:latest
+                docker run -d --name getfred -e PORT=8765 -e DATABASE_URL="$(echo $DATABASE_URL)" -e "SECRET_KEY=test" -e REACT_APP_BACKEND_SERVICE_URL="$(echo $REACT_APP_BACKEND_SERVICE_URL)" -p 8007:8765 $IMAGE_NAME:dev
           - run:
               name: Create database and load data
               command: |
@@ -83,15 +83,15 @@
     workflows:
       version: 2
 
-      build-test:
+      build:
         jobs:
           - build:
               filters:
                 branches:
                   only: master
-          - test:
-              requires:
-                - build
+      build-test:
+        jobs:
+          - build-test:
               filters:
                 branches:
                   only: master
