@@ -22,6 +22,26 @@
               root: .
               paths:
                 - ./image.tar
+      test:
+        executor: docker-publisher
+        steps:
+          - setup_remote_docker
+          - run:
+              name: Run Docker Image
+              command: |
+                docker build -f Dockerfile.deploy -t $IMAGE_NAME:latest .
+                docker run -d --name getfred -e PORT=8765 -e "SECRET_KEY=test" -p 8007:8765 $IMAGE_NAME:latest
+          - run:
+              name: Create database and load data
+              command: |
+                docker exec -it getfred python manage.py reset_db
+                docker exec -it getfred python manage.py load_data
+          - run:
+              name: Run tests
+              command: |
+                docker exec getfred python -m pytest "app/tests" -p no:warnings
+                docker exec getfred npm test
+
       publish-latest:
         executor: docker-publisher
         steps:
@@ -58,6 +78,19 @@
                 docker push $IMAGE_NAME:$IMAGE_TAG
     workflows:
       version: 2
+
+      build-test:
+        jobs:
+          - build:
+              filters:
+                branches:
+                  only: master
+          - test:
+              requires:
+                - build
+              filters:
+                branches:
+                  only: master
       build-master:
         jobs:
           - build:
