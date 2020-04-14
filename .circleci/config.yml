@@ -27,7 +27,7 @@
         steps:
           - checkout
           - run:
-              name: Start up the Image
+              name: Start up the image
               command: |
                 docker-compose up -d --build
           - run:
