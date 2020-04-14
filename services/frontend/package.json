@@ -19,7 +19,7 @@
     "lint": "eslint 'src/**/*.js*'",
     "prettier:check": "prettier --check 'src/*/*.{js,jsx,json}'",
     "prettier:write": "prettier --write 'src/*/*.{js,jsx,json}'",
-    "test": "react-scripts test --env=jsdom --coverage",
+    "test": "CI=true react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
