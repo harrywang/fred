@@ -1,25 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const style = {
-  top: "auto"
-};
 
 const Message = props => {
   return (
-    // new
-    <section data-testid="message">
-      <div className={`notification is-${props.messageType}`}>
-        <button
-          className="delete"
-          style={style}
-          onClick={() => {
-            props.removeMessage();
-          }}
-        />
-        <span className="message-text">{props.messageText}</span>
-      </div>
-    </section>
+    <div class="container">
+      <section data-testid="message">
+        <div className={`notification is-${props.messageType}`}>
+          <button
+            className="delete"
+            onClick={() => {
+              props.removeMessage();
+            }}
+          />
+          {props.messageText}
+        </div>
+      </section>
+    </div>
   );
 };
 

@@ -139,6 +139,9 @@ createMessage = (type, text) => {
     messageType: type,
     messageText: text,
   });
+  setTimeout(() => {
+      this.removeMessage();
+    }, 3000);
 };
 
 removeMessage = () => {
