@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const Message = props => {
   return (
-    <div class="container">
+    <div className="container">
       <section data-testid="message">
         <div className={`notification is-${props.messageType}`}>
           <button
@@ -13,7 +13,8 @@ const Message = props => {
               props.removeMessage();
             }}
           />
-          {props.messageText}
+          {/* message-text is for testing */}
+          <span className="message-text">{props.messageText}</span>
         </div>
       </section>
     </div>

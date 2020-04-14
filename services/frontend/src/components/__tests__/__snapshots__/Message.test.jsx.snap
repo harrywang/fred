@@ -2,42 +2,50 @@
 
 exports[`when "messageType" is "danger" renders 1`] = `
 <DocumentFragment>
-  <section
-    data-testid="message"
+  <div
+    class="container"
   >
-    <div
-      class="notification is-danger"
+    <section
+      data-testid="message"
     >
-      <button
-        class="delete"
-      />
-      <span
-        class="message-text"
+      <div
+        class="notification is-danger"
       >
-        Hello, World!
-      </span>
-    </div>
-  </section>
+        <button
+          class="delete"
+        />
+        <span
+          class="message-text"
+        >
+          Hello, World!
+        </span>
+      </div>
+    </section>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`when "messageType" is "success" renders 1`] = `
 <DocumentFragment>
-  <section
-    data-testid="message"
+  <div
+    class="container"
   >
-    <div
-      class="notification is-success"
+    <section
+      data-testid="message"
     >
-      <button
-        class="delete"
-      />
-      <span
-        class="message-text"
+      <div
+        class="notification is-success"
       >
-        Hello, World!
-      </span>
-    </div>
-  </section>
+        <button
+          class="delete"
+        />
+        <span
+          class="message-text"
+        >
+          Hello, World!
+        </span>
+      </div>
+    </section>
+  </div>
 </DocumentFragment>
 `;

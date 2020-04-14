@@ -39,7 +39,7 @@
               name: Run tests
               command: |
                 docker-compose exec backend python -m pytest "app/tests" -p no:warnings
-                docker-compose exec frontend npm test
+                docker-compose exec frontend npm run test-ci
 
       publish-latest:
         executor: docker-publisher
