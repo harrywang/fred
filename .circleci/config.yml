@@ -23,10 +23,9 @@
               paths:
                 - ./image.tar
       test:
-        executor: docker-publisher
+        machine: true
         steps:
           - checkout
-          - setup_remote_docker
           - run:
               name: Start up the Image
               command: |
