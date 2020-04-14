@@ -80,3 +80,5 @@ Done! your app is running at https://getfred.herokuapp.com and https://getfred.h
 - add .circleci/config.yml
 - add Docker Hub environment variables on CircleCI.com:
 <img width="771" alt="Screen Shot 2020-04-11 at 10 08 35 AM" src="https://user-images.githubusercontent.com/595772/79046079-97525b80-7bdc-11ea-8c6d-b974539be00d.png">
+- Note that you have to use machine executor for docker-compose to work (set `machine: true`)
+- You have to change add `CI=true` to `package.json` such as `"test": "CI=true react-scripts test --env=jsdom"` to turn off the watch mode. Otherwise, CI testing step will never complete.
