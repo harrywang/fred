@@ -11,8 +11,25 @@ import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Message from './components/Message';
 import AddUser from "./components/AddUser";
+import Image404 from './img/404.svg';
 
 
+const PageNoFound = () => (
+  <section className="hero is-halfheight">
+    <div className="hero-body">
+      <div className="container">
+
+        <h1 className="title has-text-centered">Oops, Page Not Found!</h1>
+
+        <div class="columns is-flex is-centered">
+
+          <img src={Image404} width="50%" alt="404 Page Not Found" />
+
+          </div>
+      </div>
+    </div>
+  </section>
+);
 
 class App extends Component {
   constructor() {
@@ -212,9 +229,13 @@ removeMessage = () => {
                 accessToken={this.state.accessToken}
                 isAuthenticated={this.isAuthenticated}
               />
+
             )}
           />
+          <Route
+            component={PageNoFound}
 
+          />
 
         </Switch>
       </div>
