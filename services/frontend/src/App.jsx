@@ -25,7 +25,7 @@ const PageNoFound = () => (
 
           <img src={Image404} width="50%" alt="404 Page Not Found" />
 
-          </div>
+        </div>
       </div>
     </div>
   </section>

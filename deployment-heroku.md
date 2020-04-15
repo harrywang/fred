@@ -1,4 +1,4 @@
-## Heroku Deployment:
+# Heroku Deployment
 
 - setup nginx by adding `services/nginx/default.conf`. Note that nginx listens at `$PORT`
 - add Dockerfile.deploy file. Note that `sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && \` maps `$PORT` in `services/nginx/default.conf` by the environmental variable PORT supplied by Heroku - you will supply this port when running the container later.
@@ -61,6 +61,8 @@ registry.heroku.com/getfred/web   latest              5cf10836d5b9        9 minu
 $ docker exec -it getfred python manage.py reset_db
 $ docker exec -it getfred python manage.py load_data
 ```
+test it out: http://localhost:8007
+
 - Stop and remove the 'getfred' image
 ```
 $ docker stop getfred
@@ -74,11 +76,3 @@ $ heroku run python manage.py reset_db
 $ heroku run python manage.py load_data
 ```
 Done! your app is running at https://getfred.herokuapp.com and https://getfred.herokuapp.com/docs/
-
-## CircleCI
-
-- add .circleci/config.yml
-- add Docker Hub environment variables on CircleCI.com:
-<img width="771" alt="Screen Shot 2020-04-11 at 10 08 35 AM" src="https://user-images.githubusercontent.com/595772/79046079-97525b80-7bdc-11ea-8c6d-b974539be00d.png">
-- Note that you have to use machine executor for docker-compose to work (set `machine: true`)
-- You have to change add `CI=true` to `package.json` such as `"test": "CI=true react-scripts test --env=jsdom"` to turn off the watch mode. Otherwise, CI testing step will never complete.

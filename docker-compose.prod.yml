@@ -1,0 +1,40 @@
+version: '3.2'
+
+services:
+
+  backend:
+    build:
+      context: ./services/backend
+      dockerfile: Dockerfile.prod
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_ENV=production
+      - APP_SETTINGS=app.config.ProductionConfig
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/app_prod
+      - DATABASE_TEST_URL=postgres://postgres:postgres@db:5432/app_test
+      - SECRET_KEY=change_this_to_some_random_key
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: ./services/db
+      dockerfile: Dockerfile
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  frontend:
+    build:
+      context: ./services/frontend
+      dockerfile: Dockerfile.prod
+      args:
+        - NODE_ENV=production
+        - REACT_APP_BACKEND_SERVICE_URL=http://localhost:5001
+    ports:
+      - 3007:80
+    depends_on:
+      - backend

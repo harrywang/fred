@@ -127,6 +127,14 @@ Some notes:
 
 - If you add new API endpoints - don't forget to add them to `services/nginx/default.conf`
 
+## CircleCI
+
+- add .circleci/config.yml
+- add Docker Hub environment variables on CircleCI.com:
+<img width="771" alt="Screen Shot 2020-04-11 at 10 08 35 AM" src="https://user-images.githubusercontent.com/595772/79046079-97525b80-7bdc-11ea-8c6d-b974539be00d.png">
+- Note that you have to use machine executor for docker-compose to work (set `machine: true`)
+- You have to change add `CI=true` to `package.json` such as `"test": "CI=true react-scripts test --env=jsdom"` to turn off the watch mode. Otherwise, CI testing step will never complete.
+
 ## Deployment
 
 `REACT_APP_BACKEND_SERVICE_URL` could be confusing and let me explain why it is necessary.
@@ -140,4 +148,5 @@ axios.get(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/users`)
 - When we build the production image for deployment, we have `ENV REACT_APP_BACKEND_SERVICE_URL $REACT_APP_BACKEND_SERVICE_URL` in the `Dockerfile.deploy` file - this ensures that we don't hardcode this and let the image pick up the value from the service provider (such as Heroku) when it starts - **NOTE: whatever you set the value locally does not matter to the production image!!!** As you can see in the deployment instruction, we actually don't set this environment variable in Heroku, which means the AJAX calls are sent to the default port 80.
 - Having this variable then gives you the flexibility to use any port during testing, e.g., we set it to port 8007 when testing the production image locally.
 
-Check out the deployment [instruction](/deployment.md)
+- Check out the Heroku deployment [instruction](/deployment-heroku.md)
+- Check out the AWS deployment [instruction](/deployment-aws.md)

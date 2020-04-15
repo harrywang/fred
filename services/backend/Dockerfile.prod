@@ -1,31 +1,24 @@
 # pull official base image
-FROM python:3.8.0-alpine
+FROM python:3.8.1-slim
 
-# install dependencies
-RUN apk update && \
-    apk add --virtual build-deps gcc python-dev musl-dev && \
-    apk add postgresql-dev && \
-    apk add netcat-openbsd
+# install netcat
+RUN apt-get update && \
+    apt-get -y install netcat && \
+    apt-get clean
 
 # set working directory
-WORKDIR /usr/src/fred
+WORKDIR /usr/src/app
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV FLASK_ENV production
-ENV APP_SETTINGS app.config.ProductionConfig
 
 # add and install requirements
-COPY ./requirements.txt /usr/src/fred/requirements.txt
+COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install -r requirements.txt
 
 # add app
-COPY . /usr/src/fred
+COPY . /usr/src/app
 
-# add and run as non-root user
-RUN adduser -D fred
-USER fred
-
-# run gunicorn
-CMD gunicorn --bind 0.0.0.0:$PORT manage:app
+# run server
+CMD gunicorn -b 0.0.0.0:5000 manage:app
