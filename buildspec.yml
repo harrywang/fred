@@ -21,38 +21,23 @@ phases:
       - echo building and testing dev images...
       - docker-compose up -d --build
       - docker-compose exec -T backend python -m pytest "app/tests" -p no:warnings --cov="app"
-      - docker-compose exec -T backend flake8 app
-      - docker-compose exec -T backend black app --check
-      - docker-compose exec -T backend /bin/sh -c "isort app/*/*.py --check-only"
       - docker-compose exec -T frontend npm run test-ci
-      - docker-compose exec -T frontend npm run lint
-      - docker-compose exec -T frontend npm run prettier:check
-      - docker-compose exec -T frontend npm run prettier:write
+
       - echo building images...
       - >
         docker build \
-          --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-backend:prod \
           -f services/backend/Dockerfile.prod \
           -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-backend:prod \
           ./services/backend
       - >
         docker build \
-          --target builder \
-          --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:builder \
-          -f services/frontend/Dockerfile.prod \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:builder \
-          --build-arg NODE_ENV=production \
-          --build-arg REACT_APP_BACKEND_SERVICE_URL=$REACT_APP_BACKEND_SERVICE_URL \
-          ./services/frontend
-      - >
-        docker build \
-          --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:prod \
           -f services/frontend/Dockerfile.prod \
           -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:prod \
+          --build-arg NODE_ENV=production \
+          --build-arg REACT_APP_BACKEND_SERVICE_URL=$REACT_APP_BACKEND_SERVICE_URL \
           ./services/frontend
   post_build:
     commands:
     - echo pushing prod images to ecr...
     - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-backend:prod
-    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:builder
     - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:prod
