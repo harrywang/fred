@@ -163,4 +163,5 @@ Follow the screenshots below:
 **NOTE**: add the AmazonEC2ContainerRegistryPowerUser policy to the `codebuild-my-fra-service-role` role using IAM dashboard.
 <img width="979" alt="Screen Shot 2020-04-15 at 7 47 54 PM" src="https://user-images.githubusercontent.com/595772/79399711-14216480-7f52-11ea-9b2e-59471ead8211.png">
 
-Then, add `buildspec.yml`
+Then, add `buildspec.yml`, push the code to Github and build in CodeBuild. Make sure it succeeded:
+<img width="891" alt="Screen Shot 2020-04-15 at 10 42 33 PM" src="https://user-images.githubusercontent.com/595772/79408924-8c941f80-7f6a-11ea-8ed5-b8b31ccbeccf.png">
