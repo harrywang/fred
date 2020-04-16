@@ -20,10 +20,10 @@ phases:
     commands:
       - echo building and testing dev images...
       - docker-compose up -d --build
-      - docker-compose exec -T backend python -m pytest "project/tests" -p no:warnings --cov="project"
-      - docker-compose exec -T backend flake8 project
-      - docker-compose exec -T backend black project --check
-      - docker-compose exec -T backend /bin/sh -c "isort project/*/*.py --check-only"
+      - docker-compose exec -T backend python -m pytest "app/tests" -p no:warnings --cov="app"
+      - docker-compose exec -T backend flake8 app
+      - docker-compose exec -T backend black app --check
+      - docker-compose exec -T backend /bin/sh -c "isort app/*/*.py --check-only"
       - docker-compose exec -T frontend npm run test-ci
       - docker-compose exec -T frontend npm run lint
       - docker-compose exec -T frontend npm run prettier:check
