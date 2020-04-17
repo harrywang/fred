@@ -150,5 +150,5 @@ axios.get(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/users`)
 - When we build the production image for deployment, we have `ENV REACT_APP_BACKEND_SERVICE_URL $REACT_APP_BACKEND_SERVICE_URL` in the `Dockerfile.deploy` file - this ensures that we don't hardcode this and let the image pick up the value from the service provider (such as Heroku) when it starts - **NOTE: whatever you set the value locally does not matter to the production image!!!** As you can see in the deployment instruction, we actually don't set this environment variable in Heroku, which means the AJAX calls are sent to the default port 80.
 - Having this variable then gives you the flexibility to use any port during testing, e.g., we set it to port 8007 when testing the production image locally.
 
-- Check out the Heroku deployment [instruction](/docs/deployment-heroku.md)
-- Check out the AWS deployment [instruction](/docs/deployment-aws.md)
+- Check out the Heroku deployment [instruction](/deploy/heroku/deployment-heroku.md)
+- Check out the AWS deployment [instruction](/deploy/aws/deployment-aws.md)

@@ -337,3 +337,9 @@ Then, go to CodeBuild to add more environment variables:
 
 Then, add a security policy to the role:
 <img width="981" alt="Screen Shot 2020-04-17 at 4 15 02 PM" src="https://user-images.githubusercontent.com/595772/79611250-2b825e00-80c8-11ea-8c72-c061de68f2cc.png">
+
+## Shutdown
+
+4 EC2 instances were started - you may want to shutdown them to avoid charges.
+
+Delete the clusters will terminate all related EC2 instances. 
