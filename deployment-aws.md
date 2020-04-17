@@ -165,3 +165,19 @@ Follow the screenshots below:
 
 Then, add `buildspec.yml`, push the code to Github and build in CodeBuild. Make sure it succeeded:
 <img width="891" alt="Screen Shot 2020-04-15 at 10 42 33 PM" src="https://user-images.githubusercontent.com/595772/79408924-8c941f80-7f6a-11ea-8ed5-b8b31ccbeccf.png">
+
+## EC2-Classic vs. EC2-VPC
+
+My AWS is quite old and was using EC2-Class. The new accounts are created only for EC2-VPC. I have to contact AWS to switch to the new EC2-VPC.
+
+Each AWS has a default VPC for each region. If the default VPC is deleted. You can use the following command to re-create one: `aws ec2 create-default-vpc`
+## Configure Load Balancer
+
+<img width="1044" alt="Screen Shot 2020-04-16 at 10 52 32 AM" src="https://user-images.githubusercontent.com/595772/79471286-6ef9a100-7fd0-11ea-8dd6-33f99a29edc6.png">
+
+Create "Application Load Balancer" (ALB):
+
+<img width="430" alt="Screen Shot 2020-04-16 at 10 53 18 AM" src="https://user-images.githubusercontent.com/595772/79471421-9badb880-7fd0-11ea-9bf3-7e82bfabe4b6.png">
+
+
+## Configure RDS

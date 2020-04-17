@@ -3,7 +3,6 @@ version: 0.2
 env:
   variables:
     AWS_REGION: "us-east-1"
-    REACT_APP_BACKEND_SERVICE_URL: "http://localhost:5001"
 
 phases:
   install:
@@ -23,18 +22,11 @@ phases:
       - echo building images...
       - >
         docker build \
-          -f services/backend/Dockerfile.prod \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-backend:prod \
-          ./services/backend
-      - >
-        docker build \
-          -f services/frontend/Dockerfile.prod \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:prod \
-          --build-arg NODE_ENV=production \
-          --build-arg REACT_APP_BACKEND_SERVICE_URL=$REACT_APP_BACKEND_SERVICE_URL \
-          ./services/frontend
+          -f Dockerfile-aws.deploy \
+          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred:prod \
+          .
+
   post_build:
     commands:
     - echo pushing prod images to ecr...
-    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-backend:prod
-    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:prod
+    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred:prod
