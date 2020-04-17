@@ -180,5 +180,16 @@ Create "Application Load Balancer" (ALB):
 
 <img width="430" alt="Screen Shot 2020-04-16 at 10 53 18 AM" src="https://user-images.githubusercontent.com/595772/79471421-9badb880-7fd0-11ea-9bf3-7e82bfabe4b6.png">
 
+<img width="1273" alt="Screen Shot 2020-04-17 at 1 47 50 PM" src="https://user-images.githubusercontent.com/595772/79601176-654a6900-80b6-11ea-953e-680853c67ca9.png">
+<img width="1277" alt="Screen Shot 2020-04-17 at 1 49 33 PM" src="https://user-images.githubusercontent.com/595772/79601186-6b404a00-80b6-11ea-9e5b-b9507ad5eadb.png">
+<img width="1083" alt="Screen Shot 2020-04-17 at 1 52 06 PM" src="https://user-images.githubusercontent.com/595772/79601211-76937580-80b6-11ea-84fb-367f0c0de4ae.png">
+
+Don't forget to change the value of REACT_APP_USERS_SERVICE_URL in buildspec.yml to the DNS name of the ALB.
+
+Essentially, one ALB is created with one listener at port 80 and then have two rules to forward traffic:
+
+- if path is /, forward to the frontend task group
+- if other paths (/users /auth /etc.), forward to the backend task group at port 5000. NOTE only five paths can be specified in the rule.
+
 
 ## Configure RDS
