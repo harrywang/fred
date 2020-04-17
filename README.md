@@ -1,7 +1,7 @@
 # About
 [![harrywang](https://circleci.com/gh/harrywang/fred.svg?style=shield)](https://app.circleci.com/pipelines/github/harrywang/fred)
 
-![Build Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiR1dPVXAyYUdvNW5CcDB4Q20wbzhTU1ExR0RuRm1UYU50RzNKWXc2VmQvY2s2ckhpeGJ6YmxLZlFlR2VFRzJsZ3F6dXRBaGdMSDNHd2d4NVlzSmN6aVlRPSIsIml2UGFyYW1ldGVyU3BlYyI6ImJ2WHYwR29FK0hDdndYZDYiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+![Build Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiM3pqOWNyVEYwTURBcCsrWnkwU0QxZHVHQmhRZ3pOUnZqZnRtZWxmWDhFM0tBNHJMWG9SK1hrdGtQL2I1K0Z4cHFmbFJoL1VTcmM5NHpxV3E4R1pNMHBzPSIsIml2UGFyYW1ldGVyU3BlYyI6InZWRUZXZHliUmhFamVPcTQiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 FRED (Flask + REact + Docker): An End-to-End Boilerplate for Full Stack Development
 
