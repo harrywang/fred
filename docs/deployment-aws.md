@@ -310,3 +310,30 @@ Now go to http://LOAD_BALANCER_DNS_NAME to test out!!
 
 
 ## Configure CodeBuild
+
+add the following files:
+
+- ecs/ecs_backend_task_definition.json
+- ecs/ecs_frontend_task_definition.json
+- deploy.sh
+
+update `buildspec.yml`:
+
+```
+post_build:
+  commands:
+  - echo pushing prod images to ecr...
+  - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-backend:prod
+  - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:prod
+  - chmod +x ./deploy.sh
+  - bash deploy.sh
+```
+
+Then, go to CodeBuild to add more environment variables:
+
+<img width="1225" alt="Screen Shot 2020-04-17 at 4 11 48 PM" src="https://user-images.githubusercontent.com/595772/79611214-19082480-80c8-11ea-88f3-e8428f39408d.png">
+<img width="733" alt="Screen Shot 2020-04-17 at 4 12 56 PM" src="https://user-images.githubusercontent.com/595772/79611337-5e2c5680-80c8-11ea-9c53-7c50763350b3.png">
+
+
+Then, add a security policy to the role:
+<img width="981" alt="Screen Shot 2020-04-17 at 4 15 02 PM" src="https://user-images.githubusercontent.com/595772/79611250-2b825e00-80c8-11ea-8c72-c061de68f2cc.png">

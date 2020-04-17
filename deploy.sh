@@ -18,21 +18,36 @@ register_definition() {
   fi
 }
 
+
+update_service() {
+  if [[ $(aws ecs update-service --cluster $cluster --service $service --task-definition $revision | $JQ '.service.taskDefinition') != $revision ]]; then
+    echo "Error updating service."
+    return 1
+  fi
+}
+
+
 deploy_cluster() {
 
+  cluster="fred-cluster"
+
   # backend
+  service="fred-backend-service"
   template="ecs_backend_task_definition.json"
   task_template=$(cat "ecs/$template")
   task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $AWS_RDS_URI $PRODUCTION_SECRET_KEY)
   echo "$task_def"
   register_definition
+  update_service
 
   # frontend
+  service="fred-frontend-service"
   template="ecs_frontend_task_definition.json"
   task_template=$(cat "ecs/$template")
   task_def=$(printf "$task_template" $AWS_ACCOUNT_ID)
   echo "$task_def"
   register_definition
+  update_service
 
 }
 
