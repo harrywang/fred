@@ -193,3 +193,120 @@ Essentially, one ALB is created with one listener at port 80 and then have two r
 
 
 ## Configure RDS
+
+<img width="820" alt="Screen Shot 2020-04-17 at 2 28 05 PM" src="https://user-images.githubusercontent.com/595772/79603125-bc9e0880-80b9-11ea-98b3-1acd51285cca.png">
+<img width="842" alt="Screen Shot 2020-04-17 at 2 32 23 PM" src="https://user-images.githubusercontent.com/595772/79603136-c293e980-80b9-11ea-8caa-99aa5c3249a7.png">
+<img width="808" alt="Screen Shot 2020-04-17 at 2 34 17 PM" src="https://user-images.githubusercontent.com/595772/79603151-ca538e00-80b9-11ea-9a1a-9c4983962a58.png">
+<img width="805" alt="Screen Shot 2020-04-17 at 2 35 25 PM" src="https://user-images.githubusercontent.com/595772/79603162-cf184200-80b9-11ea-8402-b8ba3e648da8.png">
+
+Get the password with master user name: fredapp:
+<img width="1000" alt="Screen Shot 2020-04-17 at 2 41 15 PM" src="https://user-images.githubusercontent.com/595772/79603173-d3dcf600-80b9-11ea-85bf-5aefa652a46d.png">
+<img width="597" alt="Screen Shot 2020-04-17 at 2 41 29 PM" src="https://user-images.githubusercontent.com/595772/79603176-d63f5000-80b9-11ea-85b7-9963ce8bbcca.png">
+
+
+Get the status of database:
+```
+$ aws --region us-east-1 rds describe-db-instances \
+  --db-instance-identifier fred-db \
+  --query 'DBInstances[].{DBInstanceStatus:DBInstanceStatus}'
+
+$ aws --region us-east-1 rds describe-db-instances \
+  --db-instance-identifier fred-db
+```
+
+Run the following command to get the address of the database:
+```
+aws --region us-east-1 rds describe-db-instances \
+  --db-instance-identifier fred-db \
+  --query 'DBInstances[].{Address:Endpoint.Address}'
+
+  [
+    {
+        "Address": "fred-db.coaqhaja4wc9.us-east-1.rds.amazonaws.com"
+    }
+]
+```
+
+So, the production URI is:
+```
+postgres://fredapp:<YOUR_PASSWORD>@<YOUR_ADDRESS>:5432/fred_prod
+```
+
+## Configure ECS
+
+
+
+<img width="1241" alt="Screen Shot 2020-04-17 at 3 00 14 PM" src="https://user-images.githubusercontent.com/595772/79608518-2969d080-80c3-11ea-80ec-3317bce705fd.png">
+<img width="858" alt="Screen Shot 2020-04-17 at 3 02 09 PM" src="https://user-images.githubusercontent.com/595772/79608540-325aa200-80c3-11ea-9750-0ef0c3c5058b.png">
+<img width="824" alt="Screen Shot 2020-04-17 at 3 13 45 PM" src="https://user-images.githubusercontent.com/595772/79608569-41d9eb00-80c3-11ea-9800-53995955adf9.png">
+<img width="827" alt="Screen Shot 2020-04-17 at 3 14 45 PM" src="https://user-images.githubusercontent.com/595772/79608582-469e9f00-80c3-11ea-8a0b-48b76f2dd2c1.png">
+<img width="827" alt="Screen Shot 2020-04-17 at 3 12 34 PM" src="https://user-images.githubusercontent.com/595772/79608610-51593400-80c3-11ea-90e4-8248fdfc2d8c.png">  
+<img width="825" alt="Screen Shot 2020-04-17 at 3 13 32 PM" src="https://user-images.githubusercontent.com/595772/79608619-54ecbb00-80c3-11ea-8b6d-a841b28b85a1.png">
+<img width="796" alt="Screen Shot 2020-04-17 at 3 12 18 PM" src="https://user-images.githubusercontent.com/595772/79608673-68982180-80c3-11ea-9e1f-52e98d5759be.png">
+<img width="1039" alt="Screen Shot 2020-04-17 at 3 18 42 PM" src="https://user-images.githubusercontent.com/595772/79608679-6d5cd580-80c3-11ea-84b2-04db6735e857.png">
+<img width="849" alt="Screen Shot 2020-04-17 at 3 19 17 PM" src="https://user-images.githubusercontent.com/595772/79608694-7352b680-80c3-11ea-9095-0429a0f6b2bb.png">
+<img width="840" alt="Screen Shot 2020-04-17 at 3 22 41 PM" src="https://user-images.githubusercontent.com/595772/79608713-7a79c480-80c3-11ea-9619-5acdedaddb0d.png">    
+<img width="814" alt="Screen Shot 2020-04-17 at 3 22 30 PM" src="https://user-images.githubusercontent.com/595772/79608746-8796b380-80c3-11ea-8557-84156521538b.png">
+<img width="861" alt="Screen Shot 2020-04-17 at 3 23 04 PM" src="https://user-images.githubusercontent.com/595772/79608754-8b2a3a80-80c3-11ea-96cc-136ed4d2d710.png">
+<img width="1034" alt="Screen Shot 2020-04-17 at 3 23 51 PM" src="https://user-images.githubusercontent.com/595772/79608767-91b8b200-80c3-11ea-8dfb-ad9ac2de37bb.png">      
+<img width="1041" alt="Screen Shot 2020-04-17 at 3 24 11 PM" src="https://user-images.githubusercontent.com/595772/79608781-98472980-80c3-11ea-96da-d8782f57a788.png">
+
+<img width="892" alt="Screen Shot 2020-04-17 at 3 25 52 PM" src="https://user-images.githubusercontent.com/595772/79608808-a2692800-80c3-11ea-80b8-36051136c3e3.png">
+<img width="894" alt="Screen Shot 2020-04-17 at 3 28 36 PM" src="https://user-images.githubusercontent.com/595772/79608815-a4cb8200-80c3-11ea-89af-e3fc2110dc6a.png">
+<img width="888" alt="Screen Shot 2020-04-17 at 3 30 19 PM" src="https://user-images.githubusercontent.com/595772/79608825-a85f0900-80c3-11ea-884e-251ed7d2c6d8.png">
+<img width="902" alt="Screen Shot 2020-04-17 at 3 31 27 PM" src="https://user-images.githubusercontent.com/595772/79608839-abf29000-80c3-11ea-85c9-1ebb11dc8efb.png">
+
+<img width="886" alt="Screen Shot 2020-04-17 at 3 31 53 PM" src="https://user-images.githubusercontent.com/595772/79608853-af861700-80c3-11ea-942e-b94fa8712c3c.png">
+
+<img width="910" alt="Screen Shot 2020-04-17 at 3 32 16 PM" src="https://user-images.githubusercontent.com/595772/79608879-b745bb80-80c3-11ea-8e8c-f6cb5811c3d0.png">
+<img width="891" alt="Screen Shot 2020-04-17 at 3 34 57 PM" src="https://user-images.githubusercontent.com/595772/79608898-c2005080-80c3-11ea-84b3-a1f48ba0f8ee.png">
+
+update security group rule to make healthy check pass:
+
+<img width="1048" alt="Screen Shot 2020-04-17 at 3 56 14 PM" src="https://user-images.githubusercontent.com/595772/79609071-173c6200-80c4-11ea-83af-6060ebb2279e.png">
+<img width="1003" alt="Screen Shot 2020-04-17 at 3 56 31 PM" src="https://user-images.githubusercontent.com/595772/79609117-2b805f00-80c4-11ea-9fac-1fcb6cc488ad.png">
+
+
+- Task Definition:
+- Tasks
+- Services
+- Clusters
+
+Cluster has services, service has tasks
+
+
+get the EC2 instance of the backend to login to initialize the database:
+
+<img width="611" alt="Screen Shot 2020-04-17 at 3 58 18 PM" src="https://user-images.githubusercontent.com/595772/79609348-96319a80-80c4-11ea-8867-39d56b7da12a.png">
+<img width="540" alt="Screen Shot 2020-04-17 at 3 58 27 PM" src="https://user-images.githubusercontent.com/595772/79609355-97fb5e00-80c4-11ea-8431-9ea3457dc653.png">
+<img width="515" alt="Screen Shot 2020-04-17 at 3 58 43 PM" src="https://user-images.githubusercontent.com/595772/79609362-9a5db800-80c4-11ea-98ab-442e60978953.png">
+<img width="636" alt="Screen Shot 2020-04-17 at 3 58 50 PM" src="https://user-images.githubusercontent.com/595772/79609370-9cc01200-80c4-11ea-87bd-6949e0e93555.png">
+<img width="932" alt="Screen Shot 2020-04-17 at 3 59 05 PM" src="https://user-images.githubusercontent.com/595772/79609373-9e89d580-80c4-11ea-85a6-cacfc986c675.png">
+
+
+```
+dami:fred harrywang$ chmod 400 ~/sandbox/keys/fred-aws.pem
+dami:fred harrywang$ ssh -i ~/sandbox/keys/fred-aws.pem ec2-user@52.70.49.60
+```
+
+
+```
+[ec2-user@ip-172-31-84-8 ~]$ docker ps
+CONTAINER ID        IMAGE                                                            COMMAND                  CREATED             STATUS                    PORTS                     NAMES
+017ff3d54c29        991046682610.dkr.ecr.us-east-1.amazonaws.com/fred-backend:prod   "/bin/sh -c 'gunicor…"   4 minutes ago       Up 4 minutes              0.0.0.0:32770->5000/tcp   ecs-fred-backend-td-1-backend-e09bb2fc80e288904f00
+de0d72895173        amazon/amazon-ecs-agent:latest                                   "/agent"                 22 minutes ago      Up 22 minutes (healthy)                             ecs-agent
+```
+
+```
+$ docker exec -it 017ff3d54c29 bash
+root@017ff3d54c29:/usr/src/app# python manage.py reset_db
+database reset done!
+root@017ff3d54c29:/usr/src/app# python manage.py load_data
+user table loaded
+author and quote tables loaded
+```
+
+Now go to http://LOAD_BALANCER_DNS_NAME to test out!!
+
+
+## Configure CodeBuild
