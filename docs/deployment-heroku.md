@@ -34,7 +34,7 @@ DATABASE_URL configuration variable has been generated:
 $ heroku config:get DATABASE_URL
 postgres://some_random_username:some_random_password@ec2-18-235-20-228.compute-1.amazonaws.com:5432/some_random_db_name
 ```
-- Export local environment variable DATABASE_URL - **NOTE**: the Heroku image we are going to build using `Dockerfile.deploy` reads from this local environment variable (this is automatically set on Heroku app when we started the Postgres database above).
+- Export local environment variable DATABASE_URL - **NOTE**: the Heroku image we are going to build using `Dockerfile-heroku.deploy` reads from this local environment variable (this is automatically set on Heroku app when we started the Postgres database above).
 ```
 $ export DATABASE_URL=postgres://some_random_username:some_random_password@ec2-18-235-20-228.compute-1.amazonaws.com:5432/some_random_db_name
 ```
@@ -42,7 +42,7 @@ $ export DATABASE_URL=postgres://some_random_username:some_random_password@ec2-1
 - Set security key on remote Heroku App: `heroku config:set SECRET_KEY=you_should_choose_your_key --app getfred`
 <img width="955" alt="Screen Shot 2020-04-10 at 3 54 25 PM" src="https://user-images.githubusercontent.com/595772/79019130-9caf9780-7b43-11ea-9f82-d480625f5b4c.png">
 
-- Build and tag the image: `docker build -f Dockerfile.deploy -t registry.heroku.com/getfred/web .`
+- Build and tag the image: `docker build -f Dockerfile-heroku.deploy -t registry.heroku.com/getfred/web .`
 ```
 dami:fred harrywang$ docker image ls
 REPOSITORY                        TAG                 IMAGE ID            CREATED             SIZE
