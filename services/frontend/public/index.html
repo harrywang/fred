@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154507291-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'UA-154507291-2');
-    </script>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154507291-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-    <meta charset="utf-8" />
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-    <link rel="icon" type="image/png" href="%PUBLIC_URL%/img/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Fred :: An End-to-End Boilerplate for Full Stack Development"
-    />
+    gtag('config', 'UA-154507291-2');
+  </script> -->
 
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
+  <meta charset="utf-8" />
+
+  <link rel="icon" type="image/png" href="%PUBLIC_URL%/img/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Fred :: An End-to-End Boilerplate for Full Stack Development" />
+
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -36,89 +37,27 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Fred :: An End-to-End Boilerplate for Full Stack Development</title>
+  <title>Fred :: An End-to-End Boilerplate for Full Stack Development</title>
 
-    <!--Core CSS -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/bulma.css">
-    <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/css/core.css">
-    <script src="https://kit.fontawesome.com/157c7cf5f5.js" crossorigin="anonymous"></script>
+  <!--Core CSS -->
+  <!-- <link rel="stylesheet" href="%PUBLIC_URL%/css/bulma.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/css/core.css"> -->
+  <!-- <script src="https://kit.fontawesome.com/157c7cf5f5.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
-    <!-- Made with Love Styling -->
-      <style>
-          .made-with-heart span {
-            color: #FFFFFF;
-            font-size: 12px;
-            display: block;
-            bottom: 10px;
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet"> -->
+</head>
 
-            text-align: center;
-          }
-          .made-with-heart span a {
-            color: #FFFFFF;
-            text-decoration: none;
-          }
-          .made-with-heart span a:hover {
-            color: #FFFFFF;
-            border-bottom: 1px solid #FFFFFF;
-            padding-bottom: .25em;
-            text-decoration: none;
-          }
-          .made-with-heart span .fa {
-            color: #E90606;
-            margin: 0 3px;
-            font-size: 10px;
-            animation: pound 0.35s infinite alternate;
-            -webkit-animation: pound 0.35s infinite alternate;
-          }
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
 
-          @-webkit-keyframes pound {
-            to {
-              transform: scale(1.1);
-            }
-          }
-          @keyframes pound {
-            to {
-              transform: scale(1.1);
-            }
-          }
-      </style>
-  </head>
-  <body>
-    <div id="preloader">
-      <div id="status"></div>
-    </div>
-
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-
-    <footer class="footer footer-dark">
-      <div class="container">
-        <div class="footer-column">
-          <div class="level">
-            <div class="level-item">
-              <div class="made-with-heart">
-              <span class="light-text">
-                      Made with <i class="fa fa-heart pulse"></i> by <a href="http://harrywang.me" target="_blank">Harry Wang</a>
-              </span>
-              </div>
-            </div>
+  <!-- Fresh JS -->
+  <script src="%PUBLIC_URL%/js/app.js"></script>
+  <!-- <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> -->
 
 
+  <!-- <script src="%PUBLIC_URL%/js/functions.js"></script>
+  <script src="%PUBLIC_URL%/js/main.js"></script> -->
+</body>
 
-          </div>
-        </div>
-
-
-      </div>
-    </footer>
-
-        <!-- Fresh JS -->
-    <script src="%PUBLIC_URL%/js/app.js"></script>
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-
-
-    <script src="%PUBLIC_URL%/js/functions.js"></script>
-    <script src="%PUBLIC_URL%/js/main.js"></script>
-  </body>
 </html>
