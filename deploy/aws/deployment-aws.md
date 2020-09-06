@@ -102,8 +102,8 @@ Then, test out the production images locally:
 ```
 $ docker-compose down -v
 $ docker-compose -f docker-compose.prod.yml up -d --build
-$ docker-compose -f docker-compose.prod.yml exec backend python manage.py reset_db
-$ docker-compose -f docker-compose.prod.yml exec backend python manage.py load_data
+$ docker-compose exec backend python manage.py reset_db
+$ docker-compose exec backend python manage.py load_data
 ```
 
 Test it out at http://localhost:3007/
@@ -123,6 +123,7 @@ $ docker build \
     --build-arg REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL} \
     ./services/frontend
 ```
+
 
 You should see the new production images using `docker image ls` (you can see the frontend production image size is much smaller than the dev image):
 
@@ -342,4 +343,4 @@ Then, add a security policy to the role:
 
 4 EC2 instances were started - you may want to shutdown them to avoid charges.
 
-Delete the clusters will terminate all related EC2 instances. 
+Delete the clusters will terminate all related EC2 instances.
