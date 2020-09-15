@@ -1,14 +1,14 @@
-import React from 'react';
-import QueueAnim from 'rc-queue-anim';
-import TweenOne from 'rc-tween-one';
-import { Row, Col } from 'antd';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
+import React from 'react'
+import QueueAnim from 'rc-queue-anim'
+import TweenOne from 'rc-tween-one'
+import { Row, Col } from 'antd'
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 
 function Content1(props) {
-  const { ...tagProps } = props;
-  const { dataSource, isMobile } = tagProps;
-  delete tagProps.dataSource;
-  delete tagProps.isMobile;
+  const { ...tagProps } = props
+  const { dataSource, isMobile } = tagProps
+  delete tagProps.dataSource
+  delete tagProps.isMobile
   const animType = {
     queue: isMobile ? 'bottom' : 'right',
     one: isMobile
@@ -24,7 +24,7 @@ function Content1(props) {
           type: 'from',
           ease: 'easeOutQuad',
         },
-  };
+  }
   return (
     <div {...tagProps} {...dataSource.wrapper}>
       <OverPack {...dataSource.OverPack} component={Row}>
@@ -64,7 +64,7 @@ function Content1(props) {
         </QueueAnim>
       </OverPack>
     </div>
-  );
+  )
 }
 
-export default Content1;
+export default Content1

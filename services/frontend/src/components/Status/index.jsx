@@ -9,28 +9,27 @@ const Status = props => {
 
   const [state, setState] = useState({ email: '', username: '' })
 
-  const getUserStatus = () => {
-    const options = {
-      url: `${process.env.REACT_APP_BACKEND_SERVICE_URL}/auth/status`,
-      method: 'get',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`,
-      },
-    }
-    return axios(options)
-      .then(res => {
-        setState({
-          email: res.data.email,
-          username: res.data.username,
-        })
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
-
   useEffect(() => {
+    const getUserStatus = () => {
+      const options = {
+        url: `${process.env.REACT_APP_BACKEND_SERVICE_URL}/auth/status`,
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+      return axios(options)
+        .then(res => {
+          setState({
+            email: res.data.email,
+            username: res.data.username,
+          })
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
     getUserStatus()
   }, [])
 

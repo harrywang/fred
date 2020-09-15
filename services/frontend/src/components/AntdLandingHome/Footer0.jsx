@@ -1,13 +1,13 @@
-import React from 'react';
-import TweenOne from 'rc-tween-one';
-import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
+import React from 'react'
+import TweenOne from 'rc-tween-one'
+import OverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 
 class Footer extends React.PureComponent {
   render() {
-    const { ...props } = this.props;
-    const { dataSource } = props;
-    delete props.dataSource;
-    delete props.isMobile;
+    const { ...props } = this.props
+    const { dataSource } = props
+    delete props.dataSource
+    delete props.isMobile
     return (
       <div {...props} {...dataSource.wrapper}>
         <OverPack {...dataSource.OverPack}>
@@ -20,8 +20,8 @@ class Footer extends React.PureComponent {
           </TweenOne>
         </OverPack>
       </div>
-    );
+    )
   }
 }
 
-export default Footer;
+export default Footer

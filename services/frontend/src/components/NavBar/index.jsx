@@ -10,7 +10,9 @@ const NavBar = props => {
   const menu = isAuthenticated() ? (
     <Menu theme="light" mode="horizontal">
       <Menu.Item key="status">
-        <Link to="/status" data-testid="nav-status">User Status</Link>
+        <Link to="/status" data-testid="nav-status">
+          User Status
+        </Link>
       </Menu.Item>
       <Menu.Item key="logout">
         <div
@@ -26,10 +28,14 @@ const NavBar = props => {
   ) : (
     <Menu theme="light" mode="horizontal">
       <Menu.Item key="register">
-        <Link to="/register" data-testid="nav-register">Register</Link>
+        <Link to="/register" data-testid="nav-register">
+          Register
+        </Link>
       </Menu.Item>
       <Menu.Item key="login">
-        <Link to="/login" data-testid="nav-login">Log In</Link>
+        <Link to="/login" data-testid="nav-login">
+          Log In
+        </Link>
       </Menu.Item>
     </Menu>
   )

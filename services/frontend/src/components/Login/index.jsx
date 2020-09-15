@@ -61,9 +61,10 @@ const LoginForm = props => {
 }
 
 const Login = props => {
-  const { isAuthenticated, handleLoginFormSubmit } = props
+  const { handleLoginFormSubmit } = props
 
   useEffect(() => {
+    const { isAuthenticated } = props
     if (isAuthenticated()) {
       window.location.href = '/'
     }

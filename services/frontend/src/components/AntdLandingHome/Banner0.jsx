@@ -1,16 +1,16 @@
-import React from 'react';
-import { Button } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
-import QueueAnim from 'rc-queue-anim';
-import TweenOne from 'rc-tween-one';
-import { isImg } from './utils';
+import React from 'react'
+import { Button } from 'antd'
+import { DownOutlined } from '@ant-design/icons'
+import QueueAnim from 'rc-queue-anim'
+import TweenOne from 'rc-tween-one'
+import { isImg } from './utils'
 
 class Banner extends React.PureComponent {
   render() {
-    const { ...currentProps } = this.props;
-    const { dataSource } = currentProps;
-    delete currentProps.dataSource;
-    delete currentProps.isMobile;
+    const { ...currentProps } = this.props
+    const { dataSource } = currentProps
+    delete currentProps.dataSource
+    delete currentProps.isMobile
     return (
       <div {...currentProps} {...dataSource.wrapper}>
         <QueueAnim
@@ -47,7 +47,7 @@ class Banner extends React.PureComponent {
           <DownOutlined />
         </TweenOne>
       </div>
-    );
+    )
   }
 }
-export default Banner;
+export default Banner

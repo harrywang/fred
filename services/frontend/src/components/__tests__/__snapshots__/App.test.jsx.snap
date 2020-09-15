@@ -698,6 +698,7 @@ exports[`renders 1`] = `
        by 
       <a
         href="http://harrywang.me"
+        rel="noopener noreferrer"
         target="_blank"
       >
         Harry Wang

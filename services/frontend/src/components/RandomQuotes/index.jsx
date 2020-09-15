@@ -26,7 +26,7 @@ const RandomQuotes = () => {
   // BUG: the position of author's name will sometimes out of the box
   return (
     <div className={styles.quotes_wrap}>
-      <div className={styles.quotes_mask}></div>
+      <div className={styles.quotes_mask} />
       <div className={styles.quotes_content}>
         <div className={styles.quotes_title}>Quotes of the Day</div>
         <div className={styles.quotes_subtitle}>

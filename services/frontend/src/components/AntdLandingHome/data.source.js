@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 export const Nav00DataSource = {
   wrapper: { className: 'header0 home-page-wrapper' },
   page: { className: 'home-page' },
@@ -96,7 +96,7 @@ export const Nav00DataSource = {
     ],
   },
   mobileMenu: { className: 'header0-mobile-menu' },
-};
+}
 export const Banner00DataSource = {
   wrapper: { className: 'banner0' },
   textWrapper: { className: 'banner0-text-wrapper' },
@@ -109,7 +109,7 @@ export const Banner00DataSource = {
     children: '一个高效的页面动画解决方案',
   },
   button: { className: 'banner0-button', children: 'Learn More' },
-};
+}
 export const Content00DataSource = {
   wrapper: { className: 'home-page-wrapper content0-wrapper' },
   page: { className: 'home-page content0' },
@@ -198,7 +198,7 @@ export const Content00DataSource = {
       },
     ],
   },
-};
+}
 export const Content10DataSource = {
   wrapper: { className: 'home-page-wrapper content1-wrapper' },
   OverPack: { className: 'home-page content1', playScale: 0.3 },
@@ -213,7 +213,7 @@ export const Content10DataSource = {
     children:
       '云资源集中编排、弹性伸缩、持续发布和部署，高可用及容灾。云资源集中编排、弹性伸缩、持续发布和部署，高可用及容灾。云资源集中编排、弹性伸缩、持续发布和部署，高可用及容灾。',
   },
-};
+}
 export const Content30DataSource = {
   wrapper: { className: 'home-page-wrapper content3-wrapper' },
   page: { className: 'home-page content3' },
@@ -358,7 +358,7 @@ export const Content30DataSource = {
       },
     ],
   },
-};
+}
 export const Footer00DataSource = {
   wrapper: { className: 'home-page-wrapper footer0-wrapper' },
   OverPack: { className: 'home-page footer0', playScale: 0.05 },
@@ -371,4 +371,4 @@ export const Footer00DataSource = {
       </span>
     ),
   },
-};
+}

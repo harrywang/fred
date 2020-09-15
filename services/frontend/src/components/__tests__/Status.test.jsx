@@ -21,9 +21,7 @@ const props = {
 }
 
 test('renders properly when authenticated', async () => {
-  const { container, findByTestId } = renderWithRouter(
-    <Status {...props} />,
-  )
+  const { container, findByTestId } = renderWithRouter(<Status {...props} />)
   await wait(() => {
     expect(axios).toHaveBeenCalledTimes(1)
   })

@@ -141,8 +141,12 @@ const App = () => {
             color: '#ffffff',
           }}
         >
-          Made with <i className="fa fa-heart pulse"></i> by{' '}
-          <a href="http://harrywang.me" target="_blank">
+          Made with <i className="fa fa-heart pulse" /> by{' '}
+          <a
+            href="http://harrywang.me"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Harry Wang
           </a>
         </Footer>
