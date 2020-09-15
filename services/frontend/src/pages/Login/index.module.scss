@@ -1,8 +1,11 @@
-@import '~antd/dist/antd.css';
+.login_wrap {
+    padding: 0 48px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
 
-.not_found {
-  padding: 6rem 0;
-  &_title {
+.login_title {
+    padding: 6rem 0;
     font-family: 'Montserrat', sans-serif !important;
     color: #444f60;
     margin-bottom: 1.5rem;
@@ -12,8 +15,7 @@
     text-align: center;
   }
 
-  &_image {
-    display: flex;
-    justify-content: space-evenly;
-  }
+.form_wrap {
+    width: 33.33%;
+    margin: 0 auto;
 }

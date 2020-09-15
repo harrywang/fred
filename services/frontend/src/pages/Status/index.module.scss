@@ -1,8 +1,11 @@
-@import '~antd/dist/antd.css';
+.status_wrap {
+    padding: 0 48px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
 
-.not_found {
-  padding: 6rem 0;
-  &_title {
+.status_title {
+    padding: 6rem 0;
     font-family: 'Montserrat', sans-serif !important;
     color: #444f60;
     margin-bottom: 1.5rem;
@@ -12,8 +15,7 @@
     text-align: center;
   }
 
-  &_image {
-    display: flex;
-    justify-content: space-evenly;
-  }
+.status_content {
+    width: 50%;
+    margin: 0 auto;
 }
