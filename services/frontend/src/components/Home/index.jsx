@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Row, Col } from 'antd'
-import RandomQuotes from '../../components/RandomQuotes'
+import RandomQuotes from '../RandomQuotes'
 import styles from './index.module.scss'
 import Icon from '@ant-design/icons'
 

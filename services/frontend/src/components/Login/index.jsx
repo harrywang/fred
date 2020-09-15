@@ -34,7 +34,7 @@ const LoginForm = props => {
             { type: 'email', message: 'The input is not valid E-mail' },
           ]}
         >
-          <Input />
+          <Input type="email" />
         </Form.Item>
         <Form.Item
           name="password"
@@ -45,10 +45,12 @@ const LoginForm = props => {
         </Form.Item>
         <Form.Item>
           <Button
+            id="login-button"
             type="primary"
             htmlType="submit"
             style={{ width: '100%' }}
             disabled={submitting}
+            value="Log in"
           >
             Log in
           </Button>

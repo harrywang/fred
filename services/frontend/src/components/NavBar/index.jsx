@@ -10,13 +10,14 @@ const NavBar = props => {
   const menu = isAuthenticated() ? (
     <Menu theme="light" mode="horizontal">
       <Menu.Item key="status">
-        <Link to="/status">User Status</Link>
+        <Link to="/status" data-testid="nav-status">User Status</Link>
       </Menu.Item>
       <Menu.Item key="logout">
         <div
           onClick={() => {
             logoutUser()
           }}
+          data-testid="nav-logout"
         >
           Log Out
         </div>
@@ -25,10 +26,10 @@ const NavBar = props => {
   ) : (
     <Menu theme="light" mode="horizontal">
       <Menu.Item key="register">
-        <Link to="/register">Register</Link>
+        <Link to="/register" data-testid="nav-register">Register</Link>
       </Menu.Item>
       <Menu.Item key="login">
-        <Link to="/login">Login</Link>
+        <Link to="/login" data-testid="nav-login">Log In</Link>
       </Menu.Item>
     </Menu>
   )

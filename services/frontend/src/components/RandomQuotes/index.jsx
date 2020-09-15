@@ -23,7 +23,7 @@ const RandomQuotes = () => {
     getRandomQuotes()
   }, [])
 
-  // TODO: the position of author's name will sometimes out of the box
+  // BUG: the position of author's name will sometimes out of the box
   return (
     <div className={styles.quotes_wrap}>
       <div className={styles.quotes_mask}></div>

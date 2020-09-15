@@ -2,608 +2,707 @@
 
 exports[`renders 1`] = `
 <DocumentFragment>
-  <div>
-    <nav
-      aria-label="main navigation"
-      class="navbar is-fresh is-transparent no-shadow"
-      role="navigation"
+  <section
+    class="ant-layout"
+    style="min-height: 100vh;"
+  >
+    <header
+      class="ant-layout-header"
+      style="background: rgb(255, 255, 255); display: flex;"
     >
-      <section
-        class="container"
+      <div
+        class="navbar_wrap"
       >
-        <a
-          aria-expanded="false"
-          aria-label="menu"
-          class="navbar-burger"
-          data-target="navbar-menu"
-          role="button"
-        >
-          <span
-            aria-hidden="true"
-          />
-          <span
-            aria-hidden="true"
-          />
-          <span
-            aria-hidden="true"
-          />
-        </a>
         <div
-          class="navbar-menu is-static"
-          id="navbar-menu"
+          class="navbar_logo"
         >
-          <div
-            class="navbar-start"
+          Fred
+        </div>
+        <ul
+          class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal"
+          role="menu"
+        >
+          <li
+            class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+            role="menuitem"
+            style="display: none;"
           >
-            <a
-              class="navbar-item nav-title"
-              href="/"
+            <div
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              role="button"
             >
-              FRED
-            </a>
-          </div>
-          <div
-            class="navbar-end"
+              <span>
+                ···
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+          </li>
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            role="menuitem"
           >
             <a
-              class="navbar-item is-secondary"
               data-testid="nav-register"
               href="/register"
             >
               Register
             </a>
+          </li>
+          <li
+            class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+            role="menuitem"
+            style="display: none;"
+          >
+            <div
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              role="button"
+            >
+              <span>
+                ···
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+          </li>
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            role="menuitem"
+          >
             <a
-              class="navbar-item is-secondary"
               data-testid="nav-login"
               href="/login"
             >
               Log In
             </a>
-          </div>
-        </div>
-      </section>
-    </nav>
-    <div>
-      <div>
-        <section
-          class="hero is-fullheight is-default is-bold"
-        >
-          <div
-            class="hero-body"
+          </li>
+          <li
+            class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+            role="menuitem"
+            style="visibility: hidden; position: absolute; display: none;"
           >
             <div
-              class="container"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              role="button"
+            >
+              <span>
+                ···
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main
+      class="ant-layout-content"
+    >
+      <div>
+        <div
+          class="home_welcome_wrap"
+        >
+          <div
+            class="home_welcome"
+          >
+            <div
+              class="ant-row ant-row-center"
             >
               <div
-                class="columns is-vcentered"
+                class="ant-col ant-col-12"
               >
                 <div
-                  class="column is-5 is-offset-1 landing-caption"
+                  class="home_welcome_text"
                 >
-                  <h1
-                    class="title is-1 is-bold is-spaced"
+                  <div
+                    class="home_welcome_text_title"
                   >
                     Meet FRED: Flask + REact + Docker
-                  </h1>
-                  <h2
-                    class="subtitle is-5 is-muted"
+                  </div>
+                  <div
+                    class="home_welcome_text_desc"
                   >
                     An End-to-End Boilerplate for Full Stack Development
-                  </h2>
+                  </div>
                   <div
-                    class="button-wrap"
+                    class="home_welcome_text_button_wrap"
                   >
-                    <a
-                      class="button cta is-rounded primary-btn raised"
-                      href="#whatfreduses"
+                    <button
+                      class="ant-btn ant-btn-primary ant-btn-round ant-btn-lg"
+                      style="margin-right: 8px;"
+                      type="button"
                     >
-                      What Fred uses?
-                    </a>
-                    <a
-                      class="button cta is-rounded"
-                      href="https://github.com/harrywang/fred"
-                      rel="noopener noreferrer"
-                      target="_blank"
+                      <span>
+                        What Fred uses?
+                      </span>
+                    </button>
+                    <button
+                      class="ant-btn ant-btn-round ant-btn-lg"
+                      type="button"
                     >
-                      Where is Fred?
-                    </a>
+                      <span>
+                        Where is Fred?
+                      </span>
+                    </button>
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-12"
+              >
                 <div
-                  class="column is-5"
+                  class="home_welcome_img"
                 >
-                  <figure
-                    class="image is-4by3"
+                  <a
+                    href="https://undraw.co/"
                   >
-                    <a
-                      href="https://undraw.co/"
-                    >
-                      <img
-                        alt="fred at work"
-                        src="/img/illustrations/designer.svg"
-                      />
-                    </a>
-                  </figure>
+                    <img
+                      alt="fred at work"
+                      src="/img/illustrations/designer.svg"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-        <section
-          class="section section-feature-grey is-medium"
-          id="whatfreduses"
+        </div>
+        <div
+          class="use_wrap"
         >
           <div
-            class="container"
+            class="use_title_wrap"
           >
             <div
-              class="title-wrapper has-text-centered"
+              class="use_title"
             >
-              <h2
-                class="title is-2"
-              >
-                What Fred Uses
-              </h2>
-              <h3
-                class="subtitle is-5 is-muted"
-              >
-                to make you happy
-              </h3>
-              <div
-                class="divider is-centered"
-              />
+              What Fred Uses
             </div>
             <div
-              class="content-wrapper"
+              class="use_subtitle"
+            >
+              to make you happy
+            </div>
+            <div
+              class="use_divider"
+            />
+          </div>
+          <div
+            class="icon_wrap"
+          >
+            <div
+              class="ant-row ant-row-space-around"
+              style="margin: -8px -8px 8px -8px;"
             >
               <div
-                class="columns is-multiline icon-list"
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
               >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="flask-outline"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://flask.palletsprojects.com/en/1.1.x/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Flask
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    Flask
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="logo-react"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://reactjs.org/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        React
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    React
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="cube-outline"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://www.docker.com/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Docker
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    Docker
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="server-outline"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://www.postgresql.org/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Postgres
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    Postgres
                   </div>
                 </div>
+              </div>
+            </div>
+            <div
+              class="ant-row ant-row-space-around"
+              style="margin: -8px -8px 8px -8px;"
+            >
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="layers-outline"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://www.sqlalchemy.org/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        SQLAlchemy
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    SQLAlchemy
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="logo-css3"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://bulma.io/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Bulma
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    Bulma
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="git-compare-outline"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://circleci.com/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        CircleCI
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    CircleCI
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="rocket-outline"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://www.heroku.com/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Heroku
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    Heroku
                   </div>
                 </div>
+              </div>
+            </div>
+            <div
+              class="ant-row ant-row-space-around"
+              style="margin: -8px -8px 8px -8px;"
+            >
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="logo-nodejs"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://nodejs.org/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Nodejs
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    Nodejs
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="logo-npm"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://www.npmjs.com/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        NPM
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    NPM
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="flashlight-outline"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://jestjs.io/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Jest
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    Jest
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="reader-outline"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://jaredpalmer.com/formik/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Formik
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    Formik
                   </div>
                 </div>
+              </div>
+            </div>
+            <div
+              class="ant-row ant-row-space-around"
+              style="margin: -8px -8px 8px -8px;"
+            >
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="logo-python"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://www.python.org/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Python
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    Python
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="hammer-outline"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://docs.pytest.org/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        PyTest
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    PyTest
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="key-outline"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://jwt.io/"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        JWT
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    JWT
                   </div>
                 </div>
+              </div>
+              <div
+                class="ant-col ant-col-3"
+                style="padding: 8px 8px 8px 8px;"
+              >
                 <div
-                  class="column is-3"
+                  class="icon_item_wrap"
                 >
                   <div
-                    class="feature-icon has-text-centered"
+                    class="icon_item"
                   >
-                    <div
-                      class="icon-wrap is-icon-reveal"
+                    <span
+                      class="anticon"
+                      role="img"
                     >
                       <ion-icon
                         name="logo-github"
                         size="large"
                       />
-                    </div>
-                    <h4>
-                      <a
-                        href="https://github.com"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Github
-                      </a>
-                    </h4>
+                    </span>
+                  </div>
+                  <div
+                    class="icon_title"
+                  >
+                    Github
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      </div>
-      <section
-        class="section is-medium  has-background-image"
-        data-background="https://source.unsplash.com/random/1600x900"
-        data-color="#4FC1EA"
-        data-color-opacity=".6"
-      >
+        </div>
         <div
-          class="overlay"
-        />
-        <div
-          class="container"
+          class="quotes_wrap"
         >
           <div
-            class="title-wrapper has-text-centered"
-          >
-            <h2
-              class="title is-2 light-text is-spaced"
-            >
-              Quotes of the Day
-            </h2>
-            <a
-              href="http://source.unsplash.com"
-            >
-              <p
-                class="light-text"
-              >
-                Random Background Image from Unsplash
-              </p>
-            </a>
-          </div>
+            class="quotes_mask"
+          />
           <div
-            class="content-wrapper"
+            class="quotes_content"
           >
             <div
-              class="columns is-vcentered"
-            />
+              class="quotes_title"
+            >
+              Quotes of the Day
+            </div>
+            <div
+              class="quotes_subtitle"
+            >
+              <a
+                href="http://source.unsplash.com"
+              >
+                Random Background Image from Unsplash
+              </a>
+            </div>
+            <div
+              class="quotes_cards"
+            >
+              <div
+                class="ant-row ant-row-center"
+                style="margin-left: -12px; margin-right: -12px;"
+              />
+            </div>
           </div>
         </div>
-      </section>
-    </div>
-  </div>
+      </div>
+    </main>
+    <footer
+      class="ant-layout-footer"
+      style="text-align: center; background: rgb(68, 79, 96); padding: 3rem 1.5rem 6rem; color: rgb(255, 255, 255);"
+    >
+      Made with 
+      <i
+        class="fa fa-heart pulse"
+      />
+       by 
+      <a
+        href="http://harrywang.me"
+        target="_blank"
+      >
+        Harry Wang
+      </a>
+    </footer>
+  </section>
 </DocumentFragment>
 `;

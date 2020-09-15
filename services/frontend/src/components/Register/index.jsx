@@ -39,12 +39,12 @@ const RegisterForm = props => {
             { type: 'email', message: 'The input is not valid E-mail' },
           ]}
         >
-          <Input />
+          <Input type="email" />
         </Form.Item>
         <Form.Item
           name="password"
           label="Password"
-          rules={[{ required: true, mesage: 'Please input your password' }]}
+          rules={[{ required: true, message: 'Please input your password' }]}
         >
           <Input.Password />
         </Form.Item>
@@ -54,6 +54,8 @@ const RegisterForm = props => {
             htmlType="submit"
             style={{ width: '100%' }}
             disabled={submitting}
+            value="Register"
+            data-testid="register-button"
           >
             Register
           </Button>

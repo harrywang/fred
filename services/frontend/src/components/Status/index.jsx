@@ -43,10 +43,10 @@ const Status = props => {
       <div className={styles.status_title}>User Status</div>
       <div className={styles.status_content}>
         <strong>Email: </strong>
-        {state.email}
+        <span data-testid="user-email">{state.email}</span>
         <br />
         <strong>Username: </strong>
-        {state.username}
+        <span data-testid="user-username">{state.username}</span>
       </div>
     </div>
   ) : (
