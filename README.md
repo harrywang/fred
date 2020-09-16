@@ -34,6 +34,10 @@ Data: I use the data scraped from http://quotes.toscrape.com/. Check out my tuto
 
 Special Thanks: many parts of this repo are based on the [open-source code](https://github.com/testdrivenio/flask-react-aws) and related [courses](https://testdriven.io/payments/bundle/microservices-with-docker-flask-and-react/) offered by Michael Herman from testdriven.io - highly recommended! Please show your support by buying the courses - I am not affiliated with testdriven.io - just really enjoyed the courses :).
 
+## Team
+
+- [Harry Wang](http://harrywang.me/)
+- [Jinggang Zhuo](https://github.com/zhuojg)
 
 ## Prerequisites
 
