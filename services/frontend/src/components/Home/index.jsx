@@ -3,6 +3,7 @@ import { Button, Row, Col } from 'antd'
 import RandomQuotes from '../RandomQuotes'
 import styles from './index.module.scss'
 import Icon from '@ant-design/icons'
+import { element } from 'prop-types'
 
 const whatFredUsesList = [
   {
@@ -110,15 +111,27 @@ const Welcome = () => (
               An End-to-End Boilerplate for Full Stack Development
             </div>
             <div className={styles.home_welcome_text_button_wrap}>
+              {/* TODO: Now these 2 button doesn't redirect */}
               <Button
                 type="primary"
                 size="large"
                 shape="round"
                 style={{ marginRight: '8px' }}
+                onClick={() => {
+                  document
+                    .getElementById('what-fred-uses')
+                    .scrollIntoView({ behavior: 'smooth' })
+                }}
               >
                 What Fred uses?
               </Button>
-              <Button size="large" shape="round">
+              <Button
+                size="large"
+                shape="round"
+                onClick={() => {
+                  window.open('https://github.com/harrywang/fred')
+                }}
+              >
                 Where is Fred?
               </Button>
             </div>
@@ -140,7 +153,7 @@ const Welcome = () => (
 )
 
 const WhatFredUses = () => (
-  <div className={styles.use_wrap}>
+  <div className={styles.use_wrap} id="what-fred-uses">
     <div className={styles.use_title_wrap}>
       <div className={styles.use_title}>What Fred Uses</div>
       <div className={styles.use_subtitle}>to make you happy</div>
