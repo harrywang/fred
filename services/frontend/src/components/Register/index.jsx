@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
 import { Redirect } from 'react-router-dom'
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, message } from 'antd'
 
 const RegisterForm = props => {
   const { handleRegisterFormSubmit } = props
@@ -9,10 +9,25 @@ const RegisterForm = props => {
   const [form] = Form.useForm()
   const [submitting, setSubmitting] = useState(false)
 
-  const onFinish = values => {
+  const onFinish = async values => {
     console.log(values)
     setSubmitting(true)
-    handleRegisterFormSubmit(values)
+    let result = await handleRegisterFormSubmit(values)
+
+    if (result && result.status && result.status == 201) {
+      message.success('You have registered successfully.')
+      // TODO: app should login automatically and redirect after register
+    } else if (
+      result &&
+      result.response &&
+      result.response.data &&
+      result.response.data.message
+    ) {
+      message.error(result.reponse.data.message)
+    } else {
+      message.error('Unknown Error in Register Component.')
+    }
+
     setSubmitting(false)
   }
 

@@ -6,6 +6,8 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Register from './components/Register'
 import Status from './components/Status'
+import Dashborad from './components/Dashboard'
+import UserStatus from './components/UserStatus'
 import { Layout, message } from 'antd'
 import styles from './App.module.scss'
 import Image404 from './img/404.svg'
@@ -54,33 +56,30 @@ const App = () => {
     return false
   }
 
-  const handleRegisterFormSubmit = data => {
+  const handleRegisterFormSubmit = async data => {
     const url = `${process.env.REACT_APP_BACKEND_SERVICE_URL}/auth/register`
-    axios
+    return axios
       .post(url, data)
       .then(res => {
-        console.log(res.data)
-        message.success('You have registered successfully.')
+        return res
       })
       .catch(err => {
-        console.log(err)
-        message.error(err.message)
+        return err
       })
   }
 
-  const handleLoginFormSubmit = data => {
+  const handleLoginFormSubmit = async data => {
     const url = `${process.env.REACT_APP_BACKEND_SERVICE_URL}/auth/login`
-    axios
+    return axios
       .post(url, data)
       .then(res => {
         setAccessToken(res.data.access_token)
         getUsers()
         window.localStorage.setItem('refreshToken', res.data.refresh_token)
-        message.success('You have logged in successfully.')
+        return res
       })
       .catch(err => {
-        console.log(err)
-        message.error(err.message)
+        return err
       })
   }
 
@@ -128,6 +127,12 @@ const App = () => {
                 isAuthenticated={isAuthenticated}
                 accessToken={accessToken}
               />
+            </Route>
+            <Route exact path="/dashboard">
+              <Dashborad isAuthenticated={isAuthenticated} />
+            </Route>
+            <Route exact path="/status">
+              <UserStatus />
             </Route>
             <Route component={PageNotFound} />
           </Switch>

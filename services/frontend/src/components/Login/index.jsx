@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './index.module.scss'
 import { Redirect } from 'react-router-dom'
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button, message } from 'antd'
 import { useEffect } from 'react'
 
 const LoginForm = props => {
@@ -10,12 +10,24 @@ const LoginForm = props => {
   const [form] = Form.useForm()
   const [submitting, setSubmitting] = useState(false)
 
-  const onFinish = values => {
-    console.log(values)
+  const onFinish = async values => {
     setSubmitting(true)
-    handleLoginFormSubmit(values)
+    let result = await handleLoginFormSubmit(values)
+
+    if (result && result.status && result.status == 200) {
+      message.success('You have logged in successfully.')
+    } else if (
+      result &&
+      result.response &&
+      result.response.data &&
+      result.response.data.message
+    ) {
+      message.error(result.response.data.message)
+    } else {
+      message.error('Unknown Error in Login Component.')
+    }
+
     setSubmitting(false)
-    window.location.href = '/'
   }
 
   return (
