@@ -7,7 +7,7 @@ import styles from './index.module.scss'
 const NavBar = props => {
   const { logoutUser, isAuthenticated } = props
 
-  const menu = isAuthenticated() ? (
+  const menu = isAuthenticated('in the nav bar') ? (
     <Menu theme="light" mode="horizontal">
       <Menu.Item key="status">
         <Link to="/status" data-testid="nav-status">

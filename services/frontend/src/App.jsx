@@ -18,7 +18,7 @@ const App = () => {
   const [accessToken, setAccessToken] = useState(null)
 
   const getUsers = () => {
-    axios
+    return axios
       .get(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/users`)
       .then(res => {
         setUsers(res.data)
@@ -28,16 +28,36 @@ const App = () => {
       })
   }
 
+  const getUserStatus = async () => {
+    console.log(accessToken, 'token in getUserStatus')
+    const options = {
+      url: `${process.env.REACT_APP_BACKEND_SERVICE_URL}/auth/status`,
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+    return axios(options)
+      .then(res => {
+        return res.data
+      })
+      .catch(error => {
+        console.log(error)
+        return error
+      })
+  }
+
   const validRefresh = () => {
     const token = window.localStorage.getItem('refreshToken')
     if (token) {
-      axios
+      return axios
         .post(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/auth/refresh`, {
           refresh_token: token,
         })
         .then(res => {
           setAccessToken(res.data.access_token)
-          getUsers()
+          // getUsers()
           window.localStorage.setItem('refreshToken', res.data.refresh_token)
           return true
         })
@@ -49,8 +69,10 @@ const App = () => {
     return false
   }
 
-  const isAuthenticated = () => {
+  const isAuthenticated = (pos) => {
+    console.log(pos)
     if (accessToken || validRefresh()) {
+      console.log(accessToken, 'token in authenticated')
       return true
     }
     return false
@@ -125,7 +147,7 @@ const App = () => {
             <Route exact path="/status">
               <Status
                 isAuthenticated={isAuthenticated}
-                accessToken={accessToken}
+                getUserStatus={getUserStatus}
               />
             </Route>
             <Route exact path="/dashboard">

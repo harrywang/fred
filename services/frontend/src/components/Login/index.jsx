@@ -16,6 +16,9 @@ const LoginForm = props => {
 
     if (result && result.status && result.status == 200) {
       message.success('You have logged in successfully.')
+      setTimeout(() => {
+        window.location.href = '/status'
+      }, 500)
     } else if (
       result &&
       result.response &&
