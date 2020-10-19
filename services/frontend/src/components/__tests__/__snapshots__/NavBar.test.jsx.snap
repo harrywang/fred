@@ -2,129 +2,195 @@
 
 exports[`when authenticated renders 1`] = `
 <DocumentFragment>
-  <nav
-    aria-label="main navigation"
-    class="navbar is-fresh is-transparent no-shadow"
-    role="navigation"
+  <div
+    class="navbar_wrap"
   >
-    <section
-      class="container"
+    <div
+      class="navbar_logo"
     >
-      <a
-        aria-expanded="false"
-        aria-label="menu"
-        class="navbar-burger"
-        data-target="navbar-menu"
-        role="button"
-      >
-        <span
-          aria-hidden="true"
-        />
-        <span
-          aria-hidden="true"
-        />
-        <span
-          aria-hidden="true"
-        />
-      </a>
-      <div
-        class="navbar-menu is-static"
-        id="navbar-menu"
+      Fred
+    </div>
+    <ul
+      class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal"
+      role="menu"
+    >
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="display: none;"
       >
         <div
-          class="navbar-start"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+          role="button"
         >
-          <a
-            class="navbar-item nav-title"
-            href="/"
-          >
-            FRED
-          </a>
-        </div>
-        <div
-          class="navbar-end"
-        >
-          <a
-            class="navbar-item is-secondary"
-            data-testid="nav-status"
-            href="/status"
-          >
-            User Status
-          </a>
-          <span
-            class="navbar-item link"
-            data-testid="nav-logout"
-          >
-            Log Out
+          <span>
+            ···
           </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
         </div>
-      </div>
-    </section>
-  </nav>
+      </li>
+      <li
+        class="ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+      >
+        <a
+          data-testid="nav-status"
+          href="/status"
+        >
+          User Status
+        </a>
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="display: none;"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+          role="button"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+      <li
+        class="ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+      >
+        <div
+          data-testid="nav-logout"
+        >
+          Log Out
+        </div>
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="visibility: hidden; position: absolute; display: none;"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+          role="button"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+    </ul>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`when unauthenticated renders 1`] = `
 <DocumentFragment>
-  <nav
-    aria-label="main navigation"
-    class="navbar is-fresh is-transparent no-shadow"
-    role="navigation"
+  <div
+    class="navbar_wrap"
   >
-    <section
-      class="container"
+    <div
+      class="navbar_logo"
     >
-      <a
-        aria-expanded="false"
-        aria-label="menu"
-        class="navbar-burger"
-        data-target="navbar-menu"
-        role="button"
-      >
-        <span
-          aria-hidden="true"
-        />
-        <span
-          aria-hidden="true"
-        />
-        <span
-          aria-hidden="true"
-        />
-      </a>
-      <div
-        class="navbar-menu is-static"
-        id="navbar-menu"
+      Fred
+    </div>
+    <ul
+      class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal"
+      role="menu"
+    >
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="display: none;"
       >
         <div
-          class="navbar-start"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+          role="button"
         >
-          <a
-            class="navbar-item nav-title"
-            href="/"
-          >
-            FRED
-          </a>
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
         </div>
+      </li>
+      <li
+        class="ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+      >
+        <a
+          data-testid="nav-register"
+          href="/register"
+        >
+          Register
+        </a>
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="display: none;"
+      >
         <div
-          class="navbar-end"
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+          role="button"
         >
-          <a
-            class="navbar-item is-secondary"
-            data-testid="nav-register"
-            href="/register"
-          >
-            Register
-          </a>
-          <a
-            class="navbar-item is-secondary"
-            data-testid="nav-login"
-            href="/login"
-          >
-            Log In
-          </a>
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
         </div>
-      </div>
-    </section>
-  </nav>
+      </li>
+      <li
+        class="ant-menu-item ant-menu-item-only-child"
+        role="menuitem"
+      >
+        <a
+          data-testid="nav-login"
+          href="/login"
+        >
+          Log In
+        </a>
+      </li>
+      <li
+        class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+        role="menuitem"
+        style="visibility: hidden; position: absolute; display: none;"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="true"
+          class="ant-menu-submenu-title"
+          role="button"
+        >
+          <span>
+            ···
+          </span>
+          <i
+            class="ant-menu-submenu-arrow"
+          />
+        </div>
+      </li>
+    </ul>
+  </div>
 </DocumentFragment>
 `;
