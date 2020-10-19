@@ -7,29 +7,28 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Status from './components/Status'
 import Dashborad from './components/Dashboard'
-import UserStatus from './components/UserStatus'
+import UserList from './components/UserList'
 import { Layout, message } from 'antd'
 import styles from './App.module.scss'
 import Image404 from './img/404.svg'
 import './App.scss'
 
 const App = () => {
-  const [users, setUsers] = useState([])
   const [accessToken, setAccessToken] = useState(null)
 
-  const getUsers = () => {
+  const getUsers = async () => {
     return axios
       .get(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/users`)
       .then(res => {
-        setUsers(res.data)
+        return res.data
       })
       .catch(err => {
         console.log(err)
+        return []
       })
   }
 
   const getUserStatus = async () => {
-    console.log(accessToken, 'token in getUserStatus')
     const options = {
       url: `${process.env.REACT_APP_BACKEND_SERVICE_URL}/auth/status`,
       method: 'get',
@@ -69,10 +68,8 @@ const App = () => {
     return false
   }
 
-  const isAuthenticated = (pos) => {
-    console.log(pos)
+  const isAuthenticated = () => {
     if (accessToken || validRefresh()) {
-      console.log(accessToken, 'token in authenticated')
       return true
     }
     return false
@@ -153,8 +150,11 @@ const App = () => {
             <Route exact path="/dashboard">
               <Dashborad isAuthenticated={isAuthenticated} />
             </Route>
-            <Route exact path="/status">
-              <UserStatus />
+            <Route exact path="/list">
+              <UserList
+                isAuthenticated={isAuthenticated}
+                getUsers={getUsers}
+              />
             </Route>
             <Route component={PageNotFound} />
           </Switch>

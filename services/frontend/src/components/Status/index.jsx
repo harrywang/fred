@@ -6,7 +6,6 @@ import { useEffect } from 'react'
 const Status = props => {
   const { isAuthenticated, getUserStatus } = props
   const [state, setState] = useState({ email: '', username: '' })
-  const authenticated = isAuthenticated()
 
   useEffect(() => {
     const initStatus = async () => {
@@ -23,7 +22,7 @@ const Status = props => {
     initStatus()
   }, [isAuthenticated])
 
-  return authenticated ? (
+  return isAuthenticated() ? (
     <div className={styles.status_wrap}>
       <div className={styles.status_title}>User Status</div>
       <div className={styles.status_content}>
