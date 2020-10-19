@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div>
+    <section
+      class="hero is-halfheight"
+    >
+      <div
+        class="hero-body"
+      >
+        <div
+          class="container"
+        >
+          <h1
+            class="title has-text-centered"
+          >
+            User Status
+          </h1>
+          <div
+            class="columns is-mobile is-centered"
+          >
+            <div
+              class="column is-one-third is-mobile is-centered"
+            >
+              <ul>
+                <li>
+                  <strong>
+                    Email:
+                  </strong>
+                   
+                  <span
+                    data-testid="user-email"
+                  >
+                    test@test.com
+                  </span>
+                </li>
+                <li>
+                  <strong>
+                    Username:
+                  </strong>
+                   
+                  <span
+                    data-testid="user-username"
+                  >
+                    test
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</DocumentFragment>
+`;
