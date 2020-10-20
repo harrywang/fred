@@ -6,7 +6,6 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Register from './components/Register'
 import Status from './components/Status'
-import Dashborad from './components/Dashboard'
 import UserList from './components/UserList'
 import { Layout, message } from 'antd'
 import styles from './App.module.scss'
@@ -182,9 +181,6 @@ const App = () => {
                 isAuthenticated={isAuthenticated}
                 getUserStatus={getUserStatus}
               />
-            </Route>
-            <Route exact path="/dashboard">
-              <Dashborad isAuthenticated={isAuthenticated} />
             </Route>
             <Route exact path="/list">
               <UserList

@@ -14,6 +14,11 @@ const NavBar = props => {
           User Status
         </Link>
       </Menu.Item>
+      <Menu.Item key="list">
+        <Link to="/list" data-testid="nav-list">
+          User List
+        </Link>
+      </Menu.Item>
       <Menu.Item key="logout">
         <div
           onClick={() => {

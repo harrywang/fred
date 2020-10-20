@@ -196,8 +196,16 @@ const UserList = props => {
       <div className={styles.user_list_title}>User List</div>
       <div className={styles.user_list_content}>
         <div className={styles.user_list_content_button}>
-          <Button type="primary" onClick={handleAddUserButtonClick} style={{marginRight: "32px"}}>Add</Button>
-          <Button danger onClick={handleDeleteUserButtonClick}>Delete</Button>
+          <Button
+            type="primary"
+            onClick={handleAddUserButtonClick}
+            style={{ marginRight: '1rem' }}
+          >
+            Add
+          </Button>
+          <Button danger onClick={handleDeleteUserButtonClick}>
+            Delete
+          </Button>
         </div>
 
         <Table
