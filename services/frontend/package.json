@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@ant-design/charts": "^0.9.13",
+    "@ant-design/charts": "^1.0.1",
     "@ant-design/compatible": "^1.0.5",
     "antd": "^4.6.2",
     "autoprefixer": "^9.8.6",
