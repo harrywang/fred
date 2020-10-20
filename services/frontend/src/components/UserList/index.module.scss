@@ -5,10 +5,9 @@
 }
 
 .user_list_title {
-    padding: 6rem 0;
+    padding-top: 6rem;
     font-family: 'Montserrat', sans-serif !important;
     color: #444f60;
-    margin-bottom: 1.5rem;
     font-size: 2rem;
     font-weight: 600;
     line-height: 1.125;
@@ -16,6 +15,13 @@
   }
 
 .user_list_content {
-    width: 50%;
     margin: 0 auto;
+    margin: 2rem 0;
+
+    &_button {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-bottom: 1rem;
+    }
 }

@@ -47,6 +47,42 @@ const App = () => {
       })
   }
 
+  const addUser = async data => {
+    const url = `${process.env.REACT_APP_BACKEND_SERVICE_URL}/users`
+    return axios
+      .post(url, data)
+      .then(res => {
+        return res
+      })
+      .catch(err => {
+        return err
+      })
+  }
+
+  const deleteUser = async id => {
+    const url = `${process.env.REACT_APP_BACKEND_SERVICE_URL}/users/${id}`
+    return axios
+      .delete(url)
+      .then(res => {
+        return res
+      })
+      .catch(err => {
+        return err
+      })
+  }
+
+  const editUser = async data => {
+    const url = `${process.env.REACT_APP_BACKEND_SERVICE_URL}/users/${data.id}`
+    return axios
+      .put(url, data)
+      .then(res => {
+        return res
+      })
+      .catch(err => {
+        return err
+      })
+  }
+
   const validRefresh = () => {
     const token = window.localStorage.getItem('refreshToken')
     if (token) {
@@ -154,6 +190,9 @@ const App = () => {
               <UserList
                 isAuthenticated={isAuthenticated}
                 getUsers={getUsers}
+                addUser={addUser}
+                deleteUser={deleteUser}
+                updateUser={editUser}
               />
             </Route>
             <Route component={PageNotFound} />
