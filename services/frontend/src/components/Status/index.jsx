@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from './index.module.scss'
 import { Redirect } from 'react-router-dom'
 import { useEffect } from 'react'
+import Dashboard from '../Dashboard'
 
 const Status = props => {
   const { isAuthenticated, getUserStatus } = props
@@ -32,6 +33,7 @@ const Status = props => {
         <strong>Username: </strong>
         <span data-testid="user-username">{state.username}</span>
       </div>
+      <Dashboard />
     </div>
   ) : (
     <Redirect to="/login" />
