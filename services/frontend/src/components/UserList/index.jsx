@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import styles from './index.module.scss'
 import { useEffect } from 'react'
 import { Table, Button, Modal, Form, Input, message } from 'antd'
+import { Redirect } from 'react-router-dom'
 
 const UserList = props => {
-  const { isAuthencated, getUsers, addUser, deleteUser, editUser } = props
+  const { isAuthenticated, getUsers, addUser, deleteUser, editUser } = props
   const [users, setUsers] = useState([])
   const [selectedRowKeys, setSelectedRowKeys] = useState([])
   const [addUserModalVisible, setAddUserModalVisible] = useState(false)
@@ -189,9 +190,9 @@ const UserList = props => {
 
   useEffect(() => {
     updateUserList()
-  }, [isAuthencated, addUserModalVisible])
+  }, [isAuthenticated, addUserModalVisible])
 
-  return (
+  return isAuthenticated() ? (
     <div className={styles.user_list_wrap}>
       <div className={styles.user_list_title}>User List</div>
       <div className={styles.user_list_content}>
@@ -237,6 +238,8 @@ const UserList = props => {
         {EditUserForm}
       </Modal>
     </div>
+  ) : (
+    <Redirect to="/login" />
   )
 }
 
