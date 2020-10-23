@@ -2,8 +2,8 @@ version: 0.2
 
 env:
   variables:
-    AWS_REGION: "us-east-1"
-    REACT_APP_BACKEND_SERVICE_URL: "http://fred-alb-869519198.us-east-1.elb.amazonaws.com"
+    AWS_REGION: "cn-northwest-1"
+    REACT_APP_BACKEND_SERVICE_URL: "fred-alb-1335448716.cn-northwest-1.elb.amazonaws.com.cn"
 
 phases:
   install:

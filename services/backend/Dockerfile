@@ -1,6 +1,10 @@
 # pull official base image
 FROM python:3.8.1-alpine
 
+# change Alpine Source
+# for bad connection in China
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+
 # install dependencies
 # updated
 RUN apk update && \
@@ -16,10 +20,11 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /usr/src/fred
 
 # install dependencies
-RUN pip install --upgrade pip
+# using Tsinghua source for bad connection in China
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip
 COPY ./requirements.txt /usr/src/fred/requirements.txt
 COPY ./requirements-dev.txt /usr/src/fred/requirements-dev.txt
-RUN pip install -r requirements-dev.txt
+RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements-dev.txt
 
 # add entrypoint.sh
 COPY ./entrypoint.sh /usr/src/fred/entrypoint.sh
