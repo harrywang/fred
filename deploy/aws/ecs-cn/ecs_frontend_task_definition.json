@@ -1,0 +1,24 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "frontend",
+      "image": "%s.dkr.ecr.us-east-1.amazonaws.com/fred-frontend:prod",
+      "essential": true,
+      "memoryReservation": 300,
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-region": "cn-northwest-1"
+        }
+      }
+    }
+  ],
+  "family": "fred-frontend-td"
+}

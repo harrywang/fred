@@ -24,19 +24,19 @@ phases:
       - >
         docker build \
           -f services/backend/Dockerfile.prod \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-backend:prod \
+          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com.cn/fred-backend:prod \
           ./services/backend
       - >
         docker build \
           -f services/frontend/Dockerfile.prod \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:prod \
+          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com.cn/fred-frontend:prod \
           --build-arg NODE_ENV=production \
           --build-arg REACT_APP_BACKEND_SERVICE_URL=$REACT_APP_BACKEND_SERVICE_URL \
           ./services/frontend
   post_build:
     commands:
     - echo pushing prod images to ecr...
-    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-backend:prod
-    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:prod
-    - chmod +x deploy/aws/deploy.sh
-    - bash deploy/aws/deploy.sh
+    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com.cn/fred-backend:prod
+    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com.cn/fred-frontend:prod
+    - chmod +x deploy/aws/deploy-cn.sh
+    - bash deploy/aws/deploy-cn.sh
