@@ -1,0 +1,13 @@
+services/backend/env
+services/backend/.dockerignore
+services/backend/Dockerfile
+services/backend/Dockerfile.prod
+services/backend/htmlcov
+services/backend/.coverage
+
+services/frontend/node_modules
+services/frontend/coverage
+services/frontend/build
+services/frontend/.dockerignore
+services/frontend/Dockerfile
+services/frontend/Dockerfile.prod
