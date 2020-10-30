@@ -28,7 +28,7 @@ phases:
           ./services/backend
       - >
         docker build \
-          -f services/frontend/Dockerfile.prod \
+          -f services/frontend/Dockerfile.cn.prod \
           -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com.cn/fred-frontend:prod \
           --build-arg NODE_ENV=production \
           --build-arg REACT_APP_BACKEND_SERVICE_URL=$REACT_APP_BACKEND_SERVICE_URL \
