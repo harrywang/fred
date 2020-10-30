@@ -18,7 +18,7 @@ phases:
       - echo building and testing dev images...
       - docker-compose up -d --build
       - docker-compose exec -T backend python -m pytest "app/tests" -p no:warnings --cov="app"
-      - docker-compose exec -T frontend npm run test-ci
+      - docker-compose exec -T frontend npm run test-ci --passWithNoTests
 
       - echo building images...
       - >
