@@ -38,5 +38,7 @@ phases:
     - echo pushing prod images to ecr...
     - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-backend:prod
     - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred-frontend:prod
-    - chmod +x deploy/aws/deploy.sh
-    - bash deploy/aws/deploy.sh
+    # deploy in post_build will not success
+    # deploy.sh need to be updated
+    # - chmod +x deploy/aws/regular/deploy.sh
+    # - bash deploy/aws/regular/deploy.sh

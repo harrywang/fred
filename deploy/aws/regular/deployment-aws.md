@@ -84,7 +84,7 @@ docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/fred-backend:dev
 docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/fred-frontend:dev
 ```
 
-Once this is done, you should be able to the images in ECR:
+Once this is done, you should be able to see the images in ECR:
 <img width="961" alt="Screen Shot 2020-04-15 at 2 21 09 PM" src="https://user-images.githubusercontent.com/595772/79373347-73688000-7f24-11ea-807d-ea3b1f0ac616.png">
 
 ## Configure Production Build Images
@@ -157,7 +157,7 @@ Follow the screenshots below:
 
 <img width="837" alt="Screen Shot 2020-04-15 at 7 34 40 PM" src="https://user-images.githubusercontent.com/595772/79399225-c5bf9600-7f50-11ea-9c38-60179ccc31a7.png">
 
-<img width="826" alt="Screen Shot 2020-04-15 at 7 36 07 PM" src="https://user-images.githubusercontent.com/595772/79399229-c9531d00-7f50-11ea-9fa1-bb6ef4e37bd5.png">
+<img width="826" alt="Screen Shot 2020-04-15 at 7 36 07 PM" src="https://user-images.githubusercontent.com/24386525/98757962-9569a880-2408-11eb-92dd-ac67649f3bf5.png">
 
 <img width="929" alt="Screen Shot 2020-04-15 at 7 36 40 PM" src="https://user-images.githubusercontent.com/595772/79399232-cb1ce080-7f50-11ea-8c22-37f54b588a9b.png">
 
@@ -235,48 +235,120 @@ postgres://fredapp:<YOUR_PASSWORD>@<YOUR_ADDRESS>:5432/fred_prod
 
 ## Configure ECS
 
+### Task Definition  
 
+Create Task Definition, so you can start service in cluster using these definitions. You need to add definition for both `frontend` and `backend`.  
+
+**Frontend:**  
+
+- Create the task definition and choose `EC2`.
 
 <img width="1241" alt="Screen Shot 2020-04-17 at 3 00 14 PM" src="https://user-images.githubusercontent.com/595772/79608518-2969d080-80c3-11ea-80ec-3317bce705fd.png">
 <img width="858" alt="Screen Shot 2020-04-17 at 3 02 09 PM" src="https://user-images.githubusercontent.com/595772/79608540-325aa200-80c3-11ea-9750-0ef0c3c5058b.png">
+
+- Then click `Add container`. And there should be a new window. Add infomation follow the instructions. Note that you should get image's url from ECR.  
+
 <img width="824" alt="Screen Shot 2020-04-17 at 3 13 45 PM" src="https://user-images.githubusercontent.com/595772/79608569-41d9eb00-80c3-11ea-9800-53995955adf9.png">
+
+- Click `Add`, and the window will be closed and you can see the container you just add.
+
 <img width="827" alt="Screen Shot 2020-04-17 at 3 14 45 PM" src="https://user-images.githubusercontent.com/595772/79608582-469e9f00-80c3-11ea-8a0b-48b76f2dd2c1.png">
-<img width="827" alt="Screen Shot 2020-04-17 at 3 12 34 PM" src="https://user-images.githubusercontent.com/595772/79608610-51593400-80c3-11ea-90e4-8248fdfc2d8c.png">  
+
+- Scroll to the bottom and click `Create`, now you can see your task definition.
+
+**Backend:**  
+
+Most of the configuration is same for backend, except the task name and container configuration. Following images show how to add container for backend task definition.  
+
+- Set `Task Definition Name` to `fred-backend-td`.  
+
+- Then click `Add container`. Use different container name, image's url and port mappings.
+
 <img width="825" alt="Screen Shot 2020-04-17 at 3 13 32 PM" src="https://user-images.githubusercontent.com/595772/79608619-54ecbb00-80c3-11ea-8b6d-a841b28b85a1.png">
+
+- Scroll down to find `environment variables`, add the following enrionment variables. `DATABASE_URL` is determined by your RDS.  
+
 <img width="796" alt="Screen Shot 2020-04-17 at 3 12 18 PM" src="https://user-images.githubusercontent.com/595772/79608673-68982180-80c3-11ea-9e1f-52e98d5759be.png">
+
+- After you have configured two task definitions, you can see them in the dashboard.  
+
 <img width="1039" alt="Screen Shot 2020-04-17 at 3 18 42 PM" src="https://user-images.githubusercontent.com/595772/79608679-6d5cd580-80c3-11ea-84b2-04db6735e857.png">
+
+### Create Cluster  
+
+Also in the ECS, you can create a cluster.  
+
+- Click Create Cluster, and choose `EC2 Linux + Network`.  
+
 <img width="849" alt="Screen Shot 2020-04-17 at 3 19 17 PM" src="https://user-images.githubusercontent.com/595772/79608694-7352b680-80c3-11ea-9095-0429a0f6b2bb.png">
-<img width="840" alt="Screen Shot 2020-04-17 at 3 22 41 PM" src="https://user-images.githubusercontent.com/595772/79608713-7a79c480-80c3-11ea-9619-5acdedaddb0d.png">    
+
+- Give your cluster a name, choose EC2 type as `t3.nano`, set number of instances to `4`, and remember to choose `Key pair` because we need to ssh to our instance.  
+
+<img width="840" alt="Screen Shot 2020-04-17 at 3 22 41 PM" src="https://user-images.githubusercontent.com/595772/79608713-7a79c480-80c3-11ea-9619-5acdedaddb0d.png">   
+
+- In networking part, use VPC and all subnets we created. And choose security group we created.  
+
 <img width="814" alt="Screen Shot 2020-04-17 at 3 22 30 PM" src="https://user-images.githubusercontent.com/595772/79608746-8796b380-80c3-11ea-8557-84156521538b.png">
+
+- Click Create and wait a minute.  
+
 <img width="861" alt="Screen Shot 2020-04-17 at 3 23 04 PM" src="https://user-images.githubusercontent.com/595772/79608754-8b2a3a80-80c3-11ea-96cc-136ed4d2d710.png">
+
+### Create Service in Cluster  
+
+Now we need to use the task definition to create service in the cluster. You also need to add service for `frontend` and `backend`.  
+
+- There should be a `View Cluster` button after the cluster created. Click it and you can see the status of the cluster.
+- Now you can click `Create` in the Services tab to create service.
+
 <img width="1034" alt="Screen Shot 2020-04-17 at 3 23 51 PM" src="https://user-images.githubusercontent.com/595772/79608767-91b8b200-80c3-11ea-8dfb-ad9ac2de37bb.png">      
 <img width="1041" alt="Screen Shot 2020-04-17 at 3 24 11 PM" src="https://user-images.githubusercontent.com/595772/79608781-98472980-80c3-11ea-96da-d8782f57a788.png">
 
+**Frontend:**
+
+- Follow the instructions. `Launch type`, `Task Definition`, `Service name`, and `Number of tasks` are configured.
+
 <img width="892" alt="Screen Shot 2020-04-17 at 3 25 52 PM" src="https://user-images.githubusercontent.com/595772/79608808-a2692800-80c3-11ea-80b8-36051136c3e3.png">
+
+- No need to change other configurations. Just make sure the Placement Templates is `AZ Balanced Spread`.
+
 <img width="894" alt="Screen Shot 2020-04-17 at 3 28 36 PM" src="https://user-images.githubusercontent.com/595772/79608815-a4cb8200-80c3-11ea-89af-e3fc2110dc6a.png">
+
+- Next, configure the Load balancer. Choose `Application Load Balancer` and correct IAM role.
+
 <img width="888" alt="Screen Shot 2020-04-17 at 3 30 19 PM" src="https://user-images.githubusercontent.com/595772/79608825-a85f0900-80c3-11ea-884e-251ed7d2c6d8.png">
+
+- Click `Add to load balancer`, and configure as you need. 
+
+> You need to create your own target group, which determines how your traffic is forwarded.  
+> The `Production listener port` is the port of your load balancer, when you visit %URL_OF_YOUR_LOAD_BALANCER:PORT, the request will be forwarded to fredend:80.  
+
+
 <img width="902" alt="Screen Shot 2020-04-17 at 3 31 27 PM" src="https://user-images.githubusercontent.com/595772/79608839-abf29000-80c3-11ea-85c9-1ebb11dc8efb.png">
 
 <img width="886" alt="Screen Shot 2020-04-17 at 3 31 53 PM" src="https://user-images.githubusercontent.com/595772/79608853-af861700-80c3-11ea-942e-b94fa8712c3c.png">
 
+- Click Next step, and you can set auto scaling.  
+
 <img width="910" alt="Screen Shot 2020-04-17 at 3 32 16 PM" src="https://user-images.githubusercontent.com/595772/79608879-b745bb80-80c3-11ea-8e8c-f6cb5811c3d0.png">
+
+- `Next step` again, and you can review your configuration. `Click Create` Service if everything looks fine.
+- Now your service is created.  
+
+**Backend:**  
+
+- Most of the configurations are same, except the forward rule in load balancer.  
+
 <img width="891" alt="Screen Shot 2020-04-17 at 3 34 57 PM" src="https://user-images.githubusercontent.com/595772/79608898-c2005080-80c3-11ea-84b3-a1f48ba0f8ee.png">
 
-update security group rule to make healthy check pass:
+- After you have created services. Update security group rule to make healthy check pass:
 
 <img width="1048" alt="Screen Shot 2020-04-17 at 3 56 14 PM" src="https://user-images.githubusercontent.com/595772/79609071-173c6200-80c4-11ea-83af-6060ebb2279e.png">
 <img width="1003" alt="Screen Shot 2020-04-17 at 3 56 31 PM" src="https://user-images.githubusercontent.com/595772/79609117-2b805f00-80c4-11ea-9fac-1fcb6cc488ad.png">
 
+## Initialize Database  
 
-- Task Definition:
-- Tasks
-- Services
-- Clusters
-
-Cluster has services, service has tasks
-
-
-get the EC2 instance of the backend to login to initialize the database:
+Get the EC2 instance of the backend to login to initialize the database:  
 
 <img width="611" alt="Screen Shot 2020-04-17 at 3 58 18 PM" src="https://user-images.githubusercontent.com/595772/79609348-96319a80-80c4-11ea-8867-39d56b7da12a.png">
 <img width="540" alt="Screen Shot 2020-04-17 at 3 58 27 PM" src="https://user-images.githubusercontent.com/595772/79609355-97fb5e00-80c4-11ea-8431-9ea3457dc653.png">
@@ -284,21 +356,19 @@ get the EC2 instance of the backend to login to initialize the database:
 <img width="636" alt="Screen Shot 2020-04-17 at 3 58 50 PM" src="https://user-images.githubusercontent.com/595772/79609370-9cc01200-80c4-11ea-87bd-6949e0e93555.png">
 <img width="932" alt="Screen Shot 2020-04-17 at 3 59 05 PM" src="https://user-images.githubusercontent.com/595772/79609373-9e89d580-80c4-11ea-85a6-cacfc986c675.png">
 
-
-```
+```shell
 dami:fred harrywang$ chmod 400 ~/sandbox/keys/fred-aws.pem
 dami:fred harrywang$ ssh -i ~/sandbox/keys/fred-aws.pem ec2-user@52.70.49.60
 ```
 
-
-```
+```shell
 [ec2-user@ip-172-31-84-8 ~]$ docker ps
 CONTAINER ID        IMAGE                                                            COMMAND                  CREATED             STATUS                    PORTS                     NAMES
 017ff3d54c29        991046682610.dkr.ecr.us-east-1.amazonaws.com/fred-backend:prod   "/bin/sh -c 'gunicor…"   4 minutes ago       Up 4 minutes              0.0.0.0:32770->5000/tcp   ecs-fred-backend-td-1-backend-e09bb2fc80e288904f00
 de0d72895173        amazon/amazon-ecs-agent:latest                                   "/agent"                 22 minutes ago      Up 22 minutes (healthy)                             ecs-agent
 ```
 
-```
+```shell
 $ docker exec -it 017ff3d54c29 bash
 root@017ff3d54c29:/usr/src/app# python manage.py reset_db
 database reset done!
@@ -307,10 +377,9 @@ user table loaded
 author and quote tables loaded
 ```
 
-Now go to http://LOAD_BALANCER_DNS_NAME to test out!!
+Now go to http://LOAD_BALANCER_DNS_NAME:PORT to test out!!
 
-
-## Configure CodeBuild
+## Configure CodeBuild Again  
 
 add the following files:
 
@@ -320,7 +389,7 @@ add the following files:
 
 update `buildspec.yml`:
 
-```
+```shell
 post_build:
   commands:
   - echo pushing prod images to ecr...

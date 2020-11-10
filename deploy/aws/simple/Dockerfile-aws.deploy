@@ -4,7 +4,7 @@
 ###########
 
 # base image
-FROM node:13.10.1-alpine as builder-react
+FROM node:14.9.0-alpine as builder-react
 
 # set working directory
 WORKDIR /usr/src/app
@@ -87,6 +87,6 @@ COPY ./services/frontend/nginx/aws/simple/default.conf /etc/nginx/conf.d/default
 EXPOSE 80
 
 # run server and nginx using sh file
-COPY ./deploy/aws/entrypoint-simple.sh /usr/src/app
-RUN chmod +x /usr/src/app/entrypoint-simple.sh
-CMD ["sh", "/usr/src/app/entrypoint-simple.sh"]
+COPY ./deploy/aws/simple/entrypoint.sh /usr/src/app
+RUN chmod +x /usr/src/app/entrypoint.sh
+CMD ["sh", "/usr/src/app/entrypoint.sh"]

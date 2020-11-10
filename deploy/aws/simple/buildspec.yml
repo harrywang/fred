@@ -1,0 +1,32 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_REGION: "us-east-1"
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - echo logging in to ecr...
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+  build:
+    commands:
+      - echo building and testing dev images...
+      - docker-compose up -d --build
+      - docker-compose exec -T backend python -m pytest "app/tests" -p no:warnings --cov="app"
+      - docker-compose exec -T frontend npm run test-ci
+
+      - echo building images...
+      - >
+        docker build \
+          -f deploy/aws/simple/Dockerfile-aws.deploy \
+          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred:prod \
+          .
+
+  post_build:
+    commands:
+    - echo pushing prod images to ecr...
+    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred:prod
