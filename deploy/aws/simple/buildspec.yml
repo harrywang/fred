@@ -22,7 +22,7 @@ phases:
       - echo building images...
       - >
         docker build \
-          -f deploy/aws/Dockerfile-aws.deploy \
+          -f deploy/aws/simple/Dockerfile-aws.deploy \
           -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/fred:prod \
           .
 

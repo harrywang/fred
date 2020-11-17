@@ -1,0 +1,44 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_REGION: "cn-northwest-1"
+    REACT_APP_BACKEND_SERVICE_URL: "http://fred-alb-1909537637.cn-northwest-1.elb.amazonaws.com.cn"
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - echo logging in to ecr...
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com.cn
+  build:
+    commands:
+      - echo building and testing dev images...
+      - docker-compose -f './docker-compose.cn.yml' up -d --build
+      - docker-compose exec -T backend python -m pytest "app/tests" -p no:warnings --cov="app"
+      - docker-compose exec -T frontend npm run test-ci
+
+      - echo building images...
+      - >
+        docker build \
+          -f services/backend/Dockerfile.cn.prod \
+          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com.cn/fred-backend:prod \
+          ./services/backend
+      - >
+        docker build \
+          -f services/frontend/Dockerfile.cn.prod \
+          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com.cn/fred-frontend:prod \
+          --build-arg NODE_ENV=production \
+          --build-arg REACT_APP_BACKEND_SERVICE_URL=$REACT_APP_BACKEND_SERVICE_URL \
+          ./services/frontend
+  post_build:
+    commands:
+    - echo pushing prod images to ecr...
+    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com.cn/fred-backend:prod
+    - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com.cn/fred-frontend:prod
+    # deploy in post_build will not success
+    # deploy.sh need to be updated
+    # - chmod +x deploy/aws/regular/deploy-cn.sh
+    # - bash deploy/aws/regular/deploy-cn.sh
