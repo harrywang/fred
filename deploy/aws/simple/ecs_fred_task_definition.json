@@ -1,0 +1,32 @@
+
+{
+    "containerDefinitions": [{
+        "name": "fred",
+        "image": "%s.dkr.ecr.us-east-1.amazonaws.com/fred:prod",
+        "essential": true,
+        "memoryReservation": 300,
+        "portMappings": [{
+            "hostPort": 0,
+            "protocol": "tcp",
+            "containerPort": 80
+        }],
+        "environment": [{
+                "name": "APP_SETTINGS",
+                "value": "app.config.ProductionConfig"
+            },
+            {
+                "name": "FLAST_ENV",
+                "value": "production"
+            },
+            {
+                "name": "DATABASE_URL",
+                "value": "%s"
+            },
+            {
+                "name": "SECRET_KEY",
+                "value": "%s"
+            }
+        ]
+    }],
+    "family": "fred-td"
+}
