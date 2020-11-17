@@ -155,4 +155,4 @@ axios.get(`${process.env.REACT_APP_BACKEND_SERVICE_URL}/users`)
 - Having this variable then gives you the flexibility to use any port during testing, e.g., we set it to port 8007 when testing the production image locally.
 
 - Check out the Heroku deployment [instruction](/deploy/heroku/deployment-heroku.md)
-- Check out the AWS deployment [instruction](/deploy/aws/deployment-aws.md)
+- Check out the AWS deployment [regular instruction](/deploy/aws/regular/deployment-aws.md) or [simple instruction](/deploy/aws/simple/deployment-aws-simple.md)

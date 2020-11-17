@@ -126,7 +126,7 @@ Firstly, you should create task definition in ECS.
 
 Also in the ECS, you can create a cluster.
 
-- Click `Create Cluster`, and choose `EC2 Linux + Network`  
+- Click `Create Cluster`, and choose `EC2 Linux + Networking`  
 
 ![image](https://user-images.githubusercontent.com/24386525/97777812-9bac8900-1bad-11eb-8b64-e3f4c40dd626.png)
 
