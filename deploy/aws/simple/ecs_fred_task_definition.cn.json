@@ -25,13 +25,7 @@
                 "name": "SECRET_KEY",
                 "value": "%s"
             }
-        ],
-        "logConfiguration": {
-            "logDriver": "awslogs",
-            "options": {
-                "awslogs-region": "cn-northwest-1"
-            }
-        }
+        ]
     }],
     "family": "fred-td"
 }
