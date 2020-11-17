@@ -63,7 +63,9 @@ You need to install the followings:
 $ docker-compose exec backend python manage.py reset_db
 $ docker-compose exec backend python manage.py load_data
 ```
-4. Visit http://localhost:3007 to check the app and visit http://127.0.0.1:5001/docs/ to check API docs
+4. Visit http://localhost:3007 to check the app (you can register a new user or use the sample testing user account username: test, email: test@test.com, password: test) 
+
+5. Visit http://127.0.0.1:5001/docs/ to check API docs. 
 
 Other useful commands:
 
