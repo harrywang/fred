@@ -22,7 +22,6 @@ RUN apk update && \
     apk add --no-cache --virtual build-deps \
     openssl-dev libffi-dev gcc python3-dev musl-dev \
     postgresql-dev netcat-openbsd
-RUN sudo apt-get install python3-dev
 RUN python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install --upgrade pip setuptools && \
