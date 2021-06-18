@@ -1,6 +1,6 @@
 # This is for Heroku deployment
 # build
-FROM node:13.10.1-alpine as build-react
+FROM node:16-alpine as build-react
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 ENV NODE_ENV production
@@ -20,7 +20,7 @@ ENV APP_SETTINGS=app.config.ProductionConfig
 WORKDIR /app
 RUN apk update && \
     apk add --no-cache --virtual build-deps \
-    openssl-dev libffi-dev gcc python3-dev musl-dev \
+    build-base openssl-dev libffi-dev gcc python3-dev musl-dev \
     postgresql-dev netcat-openbsd
 RUN python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
