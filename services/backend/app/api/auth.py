@@ -74,8 +74,8 @@ class Login(Resource):
         refresh_token = user.encode_token(user.id, "refresh")
 
         response_object = {
-            "access_token": access_token.decode(),
-            "refresh_token": refresh_token.decode(),
+            "access_token": access_token,
+            "refresh_token": refresh_token,
         }
         return response_object, 200
 
@@ -101,8 +101,8 @@ class Refresh(Resource):
             refresh_token = user.encode_token(user.id, "refresh")
 
             response_object = {
-                "access_token": access_token.decode(),
-                "refresh_token": refresh_token.decode(),
+                "access_token": access_token,
+                "refresh_token": refresh_token,
             }
 
             return (response_object,)
