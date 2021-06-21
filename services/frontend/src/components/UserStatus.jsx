@@ -40,7 +40,6 @@ class UserStatus extends Component {
     }
     return (
       <div>
-
         <section className="hero is-halfheight">
           <div className="hero-body">
             <div className="container">
@@ -55,7 +54,9 @@ class UserStatus extends Component {
                     </li>
                     <li>
                       <strong>Username:</strong>&nbsp;
-                      <span data-testid="user-username">{this.state.username}</span>
+                      <span data-testid="user-username">
+                        {this.state.username}
+                      </span>
                     </li>
                   </ul>
                 </div>

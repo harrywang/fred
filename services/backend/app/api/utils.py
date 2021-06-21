@@ -3,7 +3,7 @@
 # utility helper functions
 
 from app import db
-from app.api.models import User, Author, Quote
+from app.api.models import Author, Quote, User
 
 
 def get_all_users():
@@ -48,7 +48,7 @@ def add_quote(author_name, content):
     quote.content = content
 
     # check whether the author exists
-    exist_author = db.session.query(Author).filter_by(name = author.name).first()
+    exist_author = db.session.query(Author).filter_by(name=author.name).first()
     if exist_author is not None:  # the current author exists
         quote.author = exist_author
     else:

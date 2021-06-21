@@ -4,7 +4,7 @@
 import pytest
 
 from app import create_app, db
-from app.api.models import User, Author, Quote
+from app.api.models import Author, Quote, User
 
 
 @pytest.fixture(scope="module")
@@ -45,7 +45,7 @@ def add_quote():
         quote.content = content
 
         # check whether the author exists
-        exist_author = db.session.query(Author).filter_by(name = author.name).first()
+        exist_author = db.session.query(Author).filter_by(name=author.name).first()
         if exist_author is not None:  # the current author exists
             quote.author = exist_author
         else:

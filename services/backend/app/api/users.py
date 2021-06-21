@@ -2,17 +2,10 @@
 # APIs for users
 
 from flask import request
-from flask_restx import Resource, fields, Namespace
+from flask_restx import Namespace, Resource, fields
 
-from app.api.utils import (
-    get_all_users,
-    get_user_by_email,
-    add_user,
-    get_user_by_id,
-    update_user,
-    delete_user,
-)
-
+from app.api.utils import (add_user, delete_user, get_all_users,
+                           get_user_by_email, get_user_by_id, update_user)
 
 users_namespace = Namespace("users")
 
