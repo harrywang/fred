@@ -1,12 +1,13 @@
 # app/api/models.py
 
-import os
 import datetime
-import jwt
+import os
 
+import jwt
 from flask import current_app
 from sqlalchemy.sql import func
-from app import db, bcrypt
+
+from app import bcrypt, db
 
 
 class User(db.Model):
@@ -44,32 +45,36 @@ class User(db.Model):
 
     @staticmethod
     def decode_token(token):
-        payload = jwt.decode(token, current_app.config.get("SECRET_KEY"))
+        payload = jwt.decode(
+            token, current_app.config.get("SECRET_KEY"), algorithms="HS256"
+        )
         return payload["sub"]
-
 
 
 class Quote(db.Model):
     __tablename__ = "quote"
 
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column('content', db.Text())
-    author_id = db.Column(db.Integer, db.ForeignKey('author.id'))  # Many quotes to one author
+    content = db.Column("content", db.Text())
+    author_id = db.Column(
+        db.Integer, db.ForeignKey("author.id")
+    )  # Many quotes to one author
 
     def to_dict(self):
         data = {
-            'id': self.id,
-            'content': self.content,
-            'author_name': self.author.name,
+            "id": self.id,
+            "content": self.content,
+            "author_name": self.author.name,
         }
         return data
+
 
 class Author(db.Model):
     __tablename__ = "author"
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column('name', db.String(50), unique=True)
-    birthday = db.Column('birthday', db.DateTime)
-    bornlocation = db.Column('bornlocation', db.String(150))
-    bio = db.Column('bio', db.Text())
-    quotes = db.relationship('Quote', backref='author')  # One author to many Quotes
+    name = db.Column("name", db.String(50), unique=True)
+    birthday = db.Column("birthday", db.DateTime)
+    bornlocation = db.Column("bornlocation", db.String(150))
+    bio = db.Column("bio", db.Text())
+    quotes = db.relationship("Quote", backref="author")  # One author to many Quotes

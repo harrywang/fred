@@ -15,7 +15,6 @@ cors = CORS()
 bcrypt = Bcrypt()
 
 
-
 def create_app(script_info=None):
 
     # instantiate the app
@@ -29,7 +28,6 @@ def create_app(script_info=None):
     db.init_app(app)
     cors.init_app(app, resources={r"*": {"origins": "*"}})
     bcrypt.init_app(app)
-
 
     # register api
     from app.api import api

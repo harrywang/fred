@@ -1,16 +1,14 @@
 # app/api/quotes.py
 # APIs for quotes
 
-from flask import request
-from flask_restx import Resource, fields, Namespace
-from app import db
-from app.api.models import Author, Quote
-
 import random
 
-from app.api.utils import (
-    add_quote,
-)
+from flask import request
+from flask_restx import Namespace, Resource, fields
+
+from app import db
+from app.api.models import Author, Quote
+from app.api.utils import add_quote
 
 quotes_namespace = Namespace("quotes")
 
@@ -27,7 +25,6 @@ quote = quotes_namespace.model(
 
 
 class Quotes(Resource):
-
     @quotes_namespace.marshal_with(quote)
     def get(self):
         """Returns all quotes with author info"""
@@ -37,7 +34,6 @@ class Quotes(Resource):
             # to_dict() is a helper function in Quote class in models.py
             quotes_list.append(q.to_dict())
         return quotes_list, 200
-
 
     @quotes_namespace.expect(quote, validate=True)
     @quotes_namespace.response(201, "quote was added!")
@@ -58,10 +54,11 @@ class Quotes(Resource):
         response_object["message"] = f"quote was added!"
         return response_object, 201
 
+
 # we dont use marshal with - no information
 class RandomQuotes(Resource):
 
-    #@quotes_namespace.marshal_with(quote)
+    # @quotes_namespace.marshal_with(quote)
     def get(self):
         """Returns three random quotes with author info"""
         quotes = Quote.query.all()

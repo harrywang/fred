@@ -6,8 +6,8 @@ from flask import request
 from flask_restx import Namespace, Resource, fields
 
 from app import bcrypt
-from app.api.utils import add_user, get_user_by_email, get_user_by_id
 from app.api.models import User
+from app.api.utils import add_user, get_user_by_email, get_user_by_id
 
 auth_namespace = Namespace("auth")
 
@@ -74,8 +74,8 @@ class Login(Resource):
         refresh_token = user.encode_token(user.id, "refresh")
 
         response_object = {
-            "access_token": access_token.decode(),
-            "refresh_token": refresh_token.decode(),
+            "access_token": access_token,
+            "refresh_token": refresh_token,
         }
         return response_object, 200
 
@@ -101,8 +101,8 @@ class Refresh(Resource):
             refresh_token = user.encode_token(user.id, "refresh")
 
             response_object = {
-                "access_token": access_token.decode(),
-                "refresh_token": refresh_token.decode(),
+                "access_token": access_token,
+                "refresh_token": refresh_token,
             }
 
             return (response_object,)
