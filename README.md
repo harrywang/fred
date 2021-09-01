@@ -26,7 +26,7 @@ Tools and packages used in this project:
 - Images from [Unsplash](https://unsplash.com/)
 - [Heroku](https://www.heroku.com/): a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 - [CircleCI](https://circleci.com/): a continuous integration and delivery platform
-- AWS (TODO)
+- AWS
 
 Data: I use the data scraped from http://quotes.toscrape.com/. Check out my tutorial [A Minimalist End-to-End Scrapy Tutorial](https://towardsdatascience.com/a-minimalist-end-to-end-scrapy-tutorial-part-i-11e350bcdec0?source=friends_link&sk=c9f8e32f28a88c61987ec60f93b93e6d) if you are interested in learning web scraping.
 
